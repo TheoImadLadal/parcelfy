@@ -17,7 +17,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 
 ### Tasks to come v1:
 
-~~1. Install the .NET Core SDK and create a new .NET Core project in Visual Studio or using the dotnet command-line interface.~~
+1. ~~Install the .NET Core SDK and create a new .NET Core project in Visual Studio or using the dotnet command-line interface.~~
 
 2. In your project, create a new class called ParcelTracker and add a method called TrackParcel that takes a tracking number as a parameter and returns a Parcel object.
 
