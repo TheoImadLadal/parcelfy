@@ -5,9 +5,9 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 
 - [x] Init Repo with Clean archi
 - [x] Downgrade to .Net 6 (.Net 7 Not supported)
-- [ ] Clean code/archi
-- [ ] AppSetting with LAPOSTE Data 
+- [X] AppSetting with LAPOSTE Data 
 - [ ] Get on LAPOSTE
+- [ ] Clean code/archi
 - [ ] UnitTest LAPOSTE
 - [ ] Stryker LAPOSTE
 - [ ] WebUi LAPOSTE
