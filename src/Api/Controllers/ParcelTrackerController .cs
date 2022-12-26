@@ -23,12 +23,12 @@ public class ParcelTrackerController : ControllerBase
     }
 
 
-    [HttpGet(Name = "ParcelTrackingDetail")]
+    [HttpGet("{parcelId}")] 
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<ActionResult<ParcelTracker?>> ParcelToTrack([FromQuery] string parcelId)
+    public async Task<ActionResult<ParcelTracker?>> ParcelToTrack(string parcelId)
     {
         try
         {
