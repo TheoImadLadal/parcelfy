@@ -6,7 +6,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 - [x] Init Repo with Clean archi
 - [x] Downgrade to .Net 6 (.Net 7 Not supported)
 - [X] AppSetting with LAPOSTE Data 
-- [X] Get on LAPOSTE => PR : 
+- [X] Get on LAPOSTE / [A kind of a P.O.C - The worst architecture ever, go and take a look on the PR](https://github.com/TheoImadLadal/parcelfy/pull/3/files)
 - [ ] Clean code/archi
 - [ ] UnitTest LAPOSTE
 - [ ] Stryker LAPOSTE
