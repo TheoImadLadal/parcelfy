@@ -1,4 +1,4 @@
-﻿namespace Api;
+﻿namespace parcelfy.Infrastructure;
 
 public class LaPosteApiConfiguration
 {
