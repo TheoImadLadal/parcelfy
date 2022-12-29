@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Api;
+namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
 
 public class ParcelTrackerDTO
 {
