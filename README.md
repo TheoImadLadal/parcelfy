@@ -32,11 +32,17 @@ These classes should be based on interfaces defined within the application layer
 - [X] AppSetting with "LaPoste","Collissimo" and "Chronopost" Data 
 
 ##### Code
-- [X] Set up => [GET] method / Pull Request = [A kind of a P.O.C - The worst architecture ever, go and take a look on the PR](https://github.com/TheoImadLadal/parcelfy/pull/3/files)
-- [ ] Set up => Clean architecture / Pull Request = [Setting up a clean architecture](https://github.com/TheoImadLadal/parcelfy/pull/5/files)
+- [X] Set up => [GET] method <br/>
+💻 Pull Request = [A kind of a P.O.C - The worst architecture ever, go and take a look on the PR](https://github.com/TheoImadLadal/parcelfy/pull/3/files)
+- [X] Set up => Clean architecture <br/> 
+💻 Pull Request = [Setting up a clean architecture](https://github.com/TheoImadLadal/parcelfy/pull/5/files)
 - [ ] Set up => Clean Code
 - [ ] Set up => AutoMapper
 - [ ] Set up => FluentValidation
+
+##### Pattern 
+- [X] CQRS
+- [ ] Circuit Breaker
 
 ##### Test
 - [ ] Set up => Nunit/FluentAssertion
