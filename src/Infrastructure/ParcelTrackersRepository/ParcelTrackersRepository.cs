@@ -40,7 +40,7 @@ public class ParcelTrackersRepository : IParcelTrackingRepository
 
         if (httpResponseMessage is null || !httpResponseMessage.IsSuccessStatusCode || httpResponseMessage.Content is null)
         {
-            string message = $"Failed to get tracking details, from the tiers Api, for the parcel id '{parcelId}': {httpResponseMessage?.ReasonPhrase}, {contentMessage}";
+            string message = $"Failed to get tracking details, from the tiers Api, for the parcel id '{parcelId}': {httpResponseMessage?.ReasonPhrase}";
             
             _logger.LogError(message);
            throw new InvalidOperationException(message);
