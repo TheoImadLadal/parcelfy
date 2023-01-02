@@ -1,7 +1,7 @@
 # Parcelfy
 One single page to track parcels from the biggest carriers in France (Laposte, Colissimo, Chronopost)
 
-[![Publish 🚀](https://github.com/TheoImadLadal/parcelfy/actions/workflows/main.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/main.yml)
+[![Publish 🚀](https://github.com/TheoImadLadal/parcelfy/actions/workflows/publish.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/publish.yml)
 
 ## Technologies
 
