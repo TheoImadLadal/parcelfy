@@ -1,4 +1,6 @@
-﻿namespace parcelfy.Application.ParcelTrackers.Queries.GetParcelTrackers;
+﻿using Mapster;
+
+namespace parcelfy.Application.ParcelTrackers.Queries.GetParcelTrackers;
 
 public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 {
@@ -21,13 +23,8 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 			ParcelTrackerDto? parcelTrackerDto = await _parcelTrackingRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
             if (parcelTrackerDto != null)
             {
-				ParcelTracker parcelTracker = new ParcelTracker
-				{
-					Lang = parcelTrackerDto.Lang,
-					Scope = parcelTrackerDto.Scope,
-					ReturnCode = parcelTrackerDto.ReturnCode,
-					Shipment = ToDocument(parcelTrackerDto.Shipment)
-				};
+
+				ParcelTracker parcelTracker = parcelTrackerDto.Adapt<ParcelTracker>();
 
 				result = parcelTracker;
             }
@@ -39,18 +36,4 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
         }
         return result;
     }
-
-	public static ParcelTracker.ShipmentDomain ToDocument(ParcelTrackerDto.ShipmentDto? parcelTrackerDto)
-	{
-		if (parcelTrackerDto != null)
-		{
-			return new ParcelTracker.ShipmentDomain
-			{
-				IdShip = parcelTrackerDto.IdShip,
-				Holder = parcelTrackerDto.Holder,
-				Url = parcelTrackerDto.Url,
-			};
-		}
-		return new ParcelTracker.ShipmentDomain();
-	}
 }
