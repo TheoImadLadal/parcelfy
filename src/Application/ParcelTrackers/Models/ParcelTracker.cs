@@ -4,7 +4,7 @@ public class ParcelTracker
 {
     public string? Lang { get; set; }
     public string? Scope { get; set; }
-    //public int? ReturnCode { get; set; }
+    public int? ReturnCode { get; set; }
     public ShipmentDomain? Shipment{ get; set; }
 
     public class ShipmentDomain

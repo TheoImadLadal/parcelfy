@@ -1,8 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
 
-namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
-
-public class ParcelTrackerDTO
+public class ParcelTrackerDto
 {
     [JsonPropertyName("lang")]
     public string? Lang { get; set; }
@@ -14,9 +12,9 @@ public class ParcelTrackerDTO
     public int? ReturnCode { get; set; }
 
     [JsonPropertyName("shipment")]
-    public ShipmentDTO? Shipment { get; set; }
+    public ShipmentDto? Shipment { get; set; }
 
-    public class ShipmentDTO
+    public class ShipmentDto
     {
         [JsonPropertyName("idShip")]
         public string? IdShip { get; set; }
@@ -37,7 +35,7 @@ public class ParcelTrackerDTO
         public List<Event>? Event { get; set; }
 
         [JsonPropertyName("contextData")]
-        public ContextDataDTO? ContextData { get; set; }
+        public ContextDataDto? ContextData { get; set; }
 
         [JsonPropertyName("url")]
         public string? Url { get; set; }
@@ -78,11 +76,11 @@ public class ParcelTrackerDTO
         public DateTime? Date { get; set; }
     }
 
-    public class ContextDataDTO
+    public class ContextDataDto
     {
 
         [JsonPropertyName("deliveryChoice")]
-        public DeliveryChoiceDTO? DeliveryChoice { get; set; }
+        public DeliveryChoiceDto? DeliveryChoice { get; set; }
 
         [JsonPropertyName("partner")]
         public Partner? Partner { get; set; }
@@ -94,7 +92,7 @@ public class ParcelTrackerDTO
         public string? ArrivalCountry { get; set; }
     }
 
-    public class DeliveryChoiceDTO
+    public class DeliveryChoiceDto
     {
         [JsonPropertyName("deliveryChoice")]
         public int? DeliveryChoice { get; set; }
