@@ -38,7 +38,8 @@ These classes should be based on interfaces defined within the application layer
 💻 Pull Request = [A kind of a P.O.C - The worst architecture ever, go and take a look on the PR](https://github.com/TheoImadLadal/parcelfy/pull/3/files)
 - [X] Set up => Clean architecture <br/> 
 💻 Pull Request = [Setting up a clean architecture](https://github.com/TheoImadLadal/parcelfy/pull/5/files)
-- [ ] Set up => Clean Code
+- [X] Set up => Clean Code <br/>
+💻 Pull Request = [Setting up a clean code](https://github.com/TheoImadLadal/parcelfy/pull/8/files)
 - [ ] Set up => Mapster
 - [ ] Set up => FluentValidation
 
