@@ -1,17 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
-using parcelfy.Application.ParcelTrackers.Abstractions;
-using parcelfy.Application.ParcelTrackers.Models;
-
 namespace parcelfy.Controllers;
 
 [ApiController]
 [Route("[controller]")]
 public class ParcelTrackerController : ControllerBase
 {
-    private readonly IGetTrackingFromParcelId _getTrackingFromParcelId;
+    private readonly IGetParcelTrackingDetailsById _getTrackingFromParcelId;
     private readonly ILogger<ParcelTrackerController> _logger;
 
-    public ParcelTrackerController(IGetTrackingFromParcelId getTrackingFromParcelId, ILogger<ParcelTrackerController> logger)
+    public ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId, ILogger<ParcelTrackerController> logger)
     {
         _getTrackingFromParcelId = getTrackingFromParcelId ?? throw new ArgumentNullException(nameof(getTrackingFromParcelId));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));

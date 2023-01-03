@@ -6,7 +6,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 ## Technologies
 
 * [x] [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
-* [ ] [AutoMapper](https://automapper.org/)
+* [ ] [Mapster](https://github.com/MapsterMapper/Mapster)
 * [ ] [FluentValidation](https://fluentvalidation.net/)
 * [ ] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [ ] [Stryker testing](https://stryker-mutator.io/)
@@ -39,7 +39,7 @@ These classes should be based on interfaces defined within the application layer
 - [X] Set up => Clean architecture <br/> 
 💻 Pull Request = [Setting up a clean architecture](https://github.com/TheoImadLadal/parcelfy/pull/5/files)
 - [ ] Set up => Clean Code
-- [ ] Set up => AutoMapper
+- [ ] Set up => Mapster
 - [ ] Set up => FluentValidation
 
 ##### Pattern 
