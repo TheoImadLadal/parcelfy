@@ -20,7 +20,7 @@ public static class ConfigureServices
 			Contact = new OpenApiContact
 			{
 				Name = "Theo Imad Ladal",
-				Url = new Uri($"https://github.com/TheoImadLadal/")
+				Url = new Uri("https://github.com/TheoImadLadal/")
 			}
 		}));
 		services.AddResponseCompression();
