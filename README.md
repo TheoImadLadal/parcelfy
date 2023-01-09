@@ -1,10 +1,12 @@
 # Parcelfy
 One single page to track parcels from the biggest carriers in France (Laposte, Colissimo, Chronopost)
 
+[![Publish 🚀](https://github.com/TheoImadLadal/parcelfy/actions/workflows/publish.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/publish.yml)
+
 ## Technologies
 
 * [x] [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
-* [ ] [Mapster](https://github.com/MapsterMapper/Mapster)
+* [x] [Mapster](https://github.com/MapsterMapper/Mapster)
 * [ ] [FluentValidation](https://fluentvalidation.net/)
 * [ ] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [ ] [Stryker testing](https://stryker-mutator.io/)
@@ -36,8 +38,10 @@ These classes should be based on interfaces defined within the application layer
 💻 Pull Request = [A kind of a P.O.C - The worst architecture ever, go and take a look on the PR](https://github.com/TheoImadLadal/parcelfy/pull/3/files)
 - [X] Set up => Clean architecture <br/> 
 💻 Pull Request = [Setting up a clean architecture](https://github.com/TheoImadLadal/parcelfy/pull/5/files)
-- [ ] Set up => Clean Code
-- [ ] Set up => Mapster
+- [X] Set up => Clean Code <br/>
+💻 Pull Request = [Setting up a clean code](https://github.com/TheoImadLadal/parcelfy/pull/8/files)
+- [X] Set up => Mapster instead of manual mapping <br/>
+💻 Pull Request = [Setting up a Mapster]((https://github.com/TheoImadLadal/parcelfy/pull/9/files)
 - [ ] Set up => FluentValidation
 
 ##### Pattern 
