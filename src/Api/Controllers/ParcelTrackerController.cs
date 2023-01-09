@@ -1,7 +1,7 @@
 namespace parcelfy.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("parcel-tracker")]
 [Produces("application/json")]
 public class ParcelTrackerController : ControllerBase
 {
