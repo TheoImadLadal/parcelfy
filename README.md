@@ -6,6 +6,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 ## Technologies
 
 * [x] [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
+* [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
 * [x] [Mapster](https://github.com/MapsterMapper/Mapster)
 * [ ] [FluentValidation](https://fluentvalidation.net/)
 * [ ] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
