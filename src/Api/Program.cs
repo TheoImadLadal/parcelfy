@@ -2,9 +2,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 if (builder.Environment.IsDevelopment())
 {
-    builder.Logging
-        .AddConsole()
-        .AddDebug();
+	builder.Logging
+		.AddConsole()
+		.AddDebug();
 }
 
 // Add services to Configuration Appsettings
@@ -14,15 +14,15 @@ builder.Services.AddApiServices();
 // Application
 builder.Services.AddApplicationServices();
 // Infrastructure 
-builder.Services.AddInfrastructureServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

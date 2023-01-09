@@ -1,6 +1,6 @@
 ﻿namespace parcelfy.Application.ParcelTrackers.Abstractions;
 
 public interface IGetParcelTrackingDetailsById
-{ 
-    Task<ParcelTracker?> GetTrackingDetails(string parcelId);
+{
+	Task<ParcelTracker> GetTrackingDetailsAsync(string parcelId);
 }

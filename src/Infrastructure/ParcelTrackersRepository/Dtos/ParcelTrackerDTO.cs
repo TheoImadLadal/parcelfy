@@ -2,105 +2,111 @@
 
 public class ParcelTrackerDto
 {
-    [JsonPropertyName("lang")]
-    public string? Lang { get; set; }
-    
-    [JsonPropertyName("scope")]
-    public string? Scope { get; set; }
+	[JsonPropertyName("lang")]
+	public string Lang { get; set; }
 
-    [JsonPropertyName("returnCode")]
-    public int? ReturnCode { get; set; }
+	[JsonPropertyName("scope")]
+	public string Scope { get; set; }
 
-    [JsonPropertyName("shipment")]
-    public ShipmentDto? Shipment { get; set; }
+	[JsonPropertyName("returnCode")]
+	public int ReturnCode { get; set; }
 
-    public class ShipmentDto
-    {
-        [JsonPropertyName("idShip")]
-        public string? IdShip { get; set; }
+	[JsonPropertyName("returnMessage")]
+	public string ReturnMessage { get; set; }
 
-        [JsonPropertyName("holder")]
-        public int? Holder { get; set; }
+	[JsonPropertyName("idShip")]
+	public string IdShip { get; set; }
 
-        [JsonPropertyName("product")]
-        public string? Product { get; set; }
+	[JsonPropertyName("shipment")]
+	public ShipmentDto Shipment { get; set; }
 
-        [JsonPropertyName("isFinal")]
-        public bool? IsFinal { get; set; }
+	public class ShipmentDto
+	{
+		[JsonPropertyName("idShip")]
+		public string IdShip { get; set; }
 
-        [JsonPropertyName("timeline")]
-        public List<Timeline>? Timeline { get; set; }
+		[JsonPropertyName("holder")]
+		public int Holder { get; set; }
 
-        [JsonPropertyName("event")]
-        public List<Event>? Event { get; set; }
+		[JsonPropertyName("product")]
+		public string Product { get; set; }
 
-        [JsonPropertyName("contextData")]
-        public ContextDataDto? ContextData { get; set; }
+		[JsonPropertyName("isFinal")]
+		public bool IsFinal { get; set; }
 
-        [JsonPropertyName("url")]
-        public string? Url { get; set; }
-    }
+		[JsonPropertyName("timeline")]
+		public List<Timeline> Timeline { get; set; }
 
-    public class Timeline
-    {
+		[JsonPropertyName("event")]
+		public List<Event> Event { get; set; }
 
-        [JsonPropertyName("shortLabel")]
-        public string? ShortLabel { get; set; }
+		[JsonPropertyName("contextData")]
+		public ContextDataDto ContextData { get; set; }
 
-        [JsonPropertyName("longLabel")]
-        public string? LongLabel { get; set; }
+		[JsonPropertyName("url")]
+		public string Url { get; set; }
+	}
 
-        [JsonPropertyName("id")]
-        public int? Id { get; set; }
-        
-        [JsonPropertyName("country")]
-        public string? Country { get; set; }
+	public class Timeline
+	{
 
-        [JsonPropertyName("status")]
-        public bool? Status { get; set; }
+		[JsonPropertyName("shortLabel")]
+		public string ShortLabel { get; set; }
 
-        [JsonPropertyName("type")]
-        public int? Type { get; set; }
-    }
+		[JsonPropertyName("longLabel")]
+		public string LongLabel { get; set; }
 
-    public class Event
-    {
+		[JsonPropertyName("id")]
+		public int Id { get; set; }
 
-        [JsonPropertyName("code")]
-        public string? Code { get; set; }
+		[JsonPropertyName("country")]
+		public string Country { get; set; }
 
-        [JsonPropertyName("label")]
-        public string? Label { get; set; }
+		[JsonPropertyName("status")]
+		public bool Status { get; set; }
 
-        [JsonPropertyName("date")]
-        public DateTime? Date { get; set; }
-    }
+		[JsonPropertyName("type")]
+		public int Type { get; set; }
+	}
 
-    public class ContextDataDto
-    {
+	public class Event
+	{
 
-        [JsonPropertyName("deliveryChoice")]
-        public DeliveryChoiceDto? DeliveryChoice { get; set; }
+		[JsonPropertyName("code")]
+		public string Code { get; set; }
 
-        [JsonPropertyName("partner")]
-        public Partner? Partner { get; set; }
+		[JsonPropertyName("label")]
+		public string Label { get; set; }
 
-        [JsonPropertyName("originCountry")]
-        public string? OriginCountry { get; set; }
+		[JsonPropertyName("date")]
+		public DateTime Date { get; set; }
+	}
 
-        [JsonPropertyName("arrivalCountry")]
-        public string? ArrivalCountry { get; set; }
-    }
+	public class ContextDataDto
+	{
 
-    public class DeliveryChoiceDto
-    {
-        [JsonPropertyName("deliveryChoice")]
-        public int? DeliveryChoice { get; set; }
-    }
+		[JsonPropertyName("deliveryChoice")]
+		public DeliveryChoiceDto DeliveryChoice { get; set; }
 
-    public class Partner
-    {
-        [JsonPropertyName("reference")]
-        public string? Reference { get; set; }
-    }
+		[JsonPropertyName("partner")]
+		public Partner Partner { get; set; }
+
+		[JsonPropertyName("originCountry")]
+		public string OriginCountry { get; set; }
+
+		[JsonPropertyName("arrivalCountry")]
+		public string ArrivalCountry { get; set; }
+	}
+
+	public class DeliveryChoiceDto
+	{
+		[JsonPropertyName("deliveryChoice")]
+		public int DeliveryChoice { get; set; }
+	}
+
+	public class Partner
+	{
+		[JsonPropertyName("reference")]
+		public string Reference { get; set; }
+	}
 }

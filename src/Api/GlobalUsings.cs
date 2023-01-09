@@ -1,5 +1,5 @@
-﻿global using Microsoft.AspNetCore.Mvc;
-global using Microsoft.Extensions.Diagnostics.HealthChecks;
+﻿global using System.Text.Json.Serialization;
+global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.OpenApi.Models;
 global using parcelfy.Api;
 global using parcelfy.Application;

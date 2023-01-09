@@ -1,39 +1,61 @@
-﻿using Mapster;
+﻿using static parcelfy.Application.ParcelTrackers.Models.ParcelTracker;
 
 namespace parcelfy.Application.ParcelTrackers.Queries.GetParcelTrackers;
 
 public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 {
 
-    private readonly ILogger<GetParcelTrackingDetailsById> _logger;
-    private readonly IHttpParcelTrackingRepository _parcelTrackingRepository;
+	private readonly IMapper _mapper;
+	private readonly IHttpParcelTrackingRepository _httpParcelTrackingRepository;
+	private readonly IInMemoryParcelTrackingRepository _inMemoryParcelTrackersRepository;
 
-    public GetParcelTrackingDetailsById(ILogger<GetParcelTrackingDetailsById>? logger, IHttpParcelTrackingRepository parcelTrackingRepository)
-    {
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _parcelTrackingRepository = parcelTrackingRepository ?? throw new ArgumentNullException(nameof(parcelTrackingRepository));
-    }
+	public GetParcelTrackingDetailsById(IMapper mapper,	IHttpParcelTrackingRepository httpParcelTrackingRepository,	IInMemoryParcelTrackingRepository inMemoryParcelTrackersRepository)
+	{
+		_mapper = mapper;
+		_httpParcelTrackingRepository = httpParcelTrackingRepository;
+		_inMemoryParcelTrackersRepository = inMemoryParcelTrackersRepository;
+	}
 
-    public async Task<ParcelTracker?> GetTrackingDetails(string parcelId)
-    {
-        ParcelTracker? result = null;
-        
-        try
-        {
-			ParcelTrackerDto? parcelTrackerDto = await _parcelTrackingRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
-            if (parcelTrackerDto != null)
-            {
+	public async Task<ParcelTracker> GetTrackingDetailsAsync(string parcelId)
+	{
+		return await GetAllTrackingDetailsAsync(parcelId).ConfigureAwait(false);		
+	}
 
-				ParcelTracker parcelTracker = parcelTrackerDto.Adapt<ParcelTracker>();
 
-				result = parcelTracker;
-            }
-        }
-        catch (Exception ex) when (ex is InvalidOperationException || ex is NullReferenceException || ex is UriFormatException)
-        {
-            _logger.LogError(ex.Message, ex);
-            throw;
-        }
-        return result;
-    }
+	private async Task<ParcelTracker> GetAllTrackingDetailsAsync(string parcelId)
+	{
+		await Task.CompletedTask;
+
+		ParcelTracker parcelTracker = null;
+		List<Event> trackingEvents = new();
+
+		IEnumerable<ParcelTrackHistory> parcelTrackersFromDb = _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId);
+
+		if (parcelTrackersFromDb.Any())
+		{
+			foreach(var parcelTrackerFromDb in parcelTrackersFromDb)
+			{
+				trackingEvents.Add(new Event()
+				{
+					Code = parcelTrackerFromDb.EventCode,
+					Label = parcelTrackerFromDb.EventMessage,
+					Date = parcelTrackerFromDb.EventDate,
+				});
+			}
+
+			parcelTracker = _mapper.Map<ParcelTracker>(parcelTrackersFromDb.FirstOrDefault());
+			parcelTracker.Shipment.Event.AddRange(trackingEvents);
+		}
+
+		if (parcelTracker is null)
+		{
+			ParcelTrackerDto parcelTrackerFromDto = await _httpParcelTrackingRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
+			if (parcelTrackerFromDto is not null)
+			{
+				parcelTracker = _mapper.Map<ParcelTracker>(parcelTrackerFromDto);
+			}
+		}
+		return parcelTracker;
+	}
+
 }
