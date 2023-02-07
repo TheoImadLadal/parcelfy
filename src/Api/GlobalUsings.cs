@@ -1,5 +1,7 @@
 ﻿global using System.Reflection;
 global using System.Text.Json.Serialization;
+global using FluentValidation;
+global using FluentValidation.Results;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.OpenApi.Models;
 global using parcelfy.Api;

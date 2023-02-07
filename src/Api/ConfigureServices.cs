@@ -33,7 +33,8 @@ public static class ConfigureServices
 			var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 			options.IncludeXmlComments(xmlPath);
 		});
-		
+
+		services.AddScoped<IValidator<ParcelTrackerHistory>, ParcelTrackerHistoryValidator>();
 		services.AddResponseCompression();
 		services.AddDataProtection();
 		return services;

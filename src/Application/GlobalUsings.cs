@@ -1,8 +1,10 @@
-﻿global using Mapster;
+﻿global using System.Reflection;
+global using FluentValidation;
+global using Mapster;
 global using MapsterMapper;
-global using System.Reflection;
 global using Microsoft.Extensions.DependencyInjection;
 global using parcelfy.Application.ParcelTrackers.Abstractions;
+global using parcelfy.Application.ParcelTrackers.Commands.CreateParcelTrackingDetails;
 global using parcelfy.Application.ParcelTrackers.Models;
 global using parcelfy.Application.ParcelTrackers.Queries.GetParcelTrackers;
 global using parcelfy.Infrastructure.ParcelTrackersRepository.Abstractions;

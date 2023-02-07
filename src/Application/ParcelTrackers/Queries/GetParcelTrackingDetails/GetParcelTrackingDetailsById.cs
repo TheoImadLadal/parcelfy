@@ -24,27 +24,25 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 
 	private async Task<ParcelTracker> GetAllTrackingDetailsAsync(string parcelId)
 	{
-		await Task.CompletedTask;
-
 		ParcelTracker parcelTracker = null;
-		List<Event> trackingEvents = new();
+		List<Event> events = new();
 
-		IEnumerable<ParcelTrackHistory> parcelTrackersFromDb = _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId);
+		IEnumerable<ParcelTrackerHistoryDto> parcelTrackerHistoryDtos = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
 
-		if (parcelTrackersFromDb.Any())
+		if (parcelTrackerHistoryDtos.Any())
 		{
-			foreach(var parcelTrackerFromDb in parcelTrackersFromDb)
+			foreach(var parcelTrackerHistoryDto in parcelTrackerHistoryDtos)
 			{
-				trackingEvents.Add(new Event()
+				events.Add(new Event()
 				{
-					Code = parcelTrackerFromDb.EventCode,
-					Label = parcelTrackerFromDb.EventMessage,
-					Date = parcelTrackerFromDb.EventDate,
+					Code = parcelTrackerHistoryDto.EventCode,
+					Label = parcelTrackerHistoryDto.EventMessage,
+					Date = parcelTrackerHistoryDto.EventDate,
 				});
 			}
 
-			parcelTracker = _mapper.Map<ParcelTracker>(parcelTrackersFromDb.FirstOrDefault());
-			parcelTracker.Shipment.Event.AddRange(trackingEvents);
+			parcelTracker = _mapper.Map<ParcelTracker>(parcelTrackerHistoryDtos.FirstOrDefault());
+			parcelTracker.Shipment.Event.AddRange(events);
 		}
 
 		if (parcelTracker is null)

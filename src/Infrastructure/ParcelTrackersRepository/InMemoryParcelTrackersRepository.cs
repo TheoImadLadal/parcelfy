@@ -9,10 +9,16 @@ public class InMemoryParcelTrackersRepository : IInMemoryParcelTrackingRepositor
 		_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
 	}
 
-	public IEnumerable<ParcelTrackHistory> GetTrackingDetails(string parcelId)
+	public Task<IEnumerable<ParcelTrackerHistoryDto>> GetTrackingDetails(string parcelId)
 	{
-		IEnumerable<ParcelTrackHistory> parcelTrackHistories = _dbContext.ParcelTrackHistories.Where(p => p.ParcelId == parcelId).ToList();
-		return parcelTrackHistories;
+		IEnumerable<ParcelTrackerHistoryDto> parcelTrackHistories =_dbContext.ParcelTrackHistories.Where(p => p.ParcelId == parcelId).ToList();
+		return Task.FromResult(parcelTrackHistories);
+	}
+
+	public void PostTrackingDetailsHistory(ParcelTrackerHistoryDto parcelTrackerHistoryDto)
+	{
+		_dbContext.ParcelTrackHistories.Add(parcelTrackerHistoryDto);
+		_dbContext.SaveChanges();
 	}
 
 }
