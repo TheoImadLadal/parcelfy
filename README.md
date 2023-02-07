@@ -9,7 +9,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 * [x] [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
 * [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
 * [x] [Mapster](https://github.com/MapsterMapper/Mapster)
-* [ ] [FluentValidation](https://fluentvalidation.net/)
+* [x] [FluentValidation](https://fluentvalidation.net/)
 * [ ] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [ ] [Stryker testing](https://stryker-mutator.io/)
 * [ ] [Specflow BDD](https://specflow.org/)
@@ -19,25 +19,13 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 
 ## ➤ API Reference 
 
-### Get user by id
+### Get tracking details by parcelId
 ```http
 GET /parcel-tracker/parcelId
 ```
-
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `parcelId` | `string` | **Required**.Your parcel Id |
-
-
-![Image](https://i.imgur.com/0Z0Z0Z0.png)
-        
-
-        
-| Column 1 | Column 2 | Column 3 |
-| -------- | -------- | -------- |
-| Row 1    | Row 1    | Row 1    |
-| Row 2    | Row 2    | Row 2    |
-| Row 3    | Row 3    | Row 3    |
         
 
 
