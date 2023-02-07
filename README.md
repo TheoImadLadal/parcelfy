@@ -13,6 +13,8 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 * [ ] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [ ] [Stryker testing](https://stryker-mutator.io/)
 * [ ] [Specflow BDD](https://specflow.org/)
+* [ ] [Authentication API JWT]
+* [ ] [Circuit Breaker setup]
  
 *And more to come.*    
      
