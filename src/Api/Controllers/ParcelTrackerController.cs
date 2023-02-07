@@ -6,11 +6,19 @@ namespace parcelfy.Controllers;
 public class ParcelTrackerController : ControllerBase
 {
 	private readonly IGetParcelTrackingDetailsById _getTrackingFromParcelId;
+	private readonly ICreateParcelTrackingDetailsCommands _createParcelTrackingDetailsCommands;
 	private readonly ILogger<ParcelTrackerController> _logger;
-	public ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId, ILogger<ParcelTrackerController> logger)
+	private readonly IValidator<ParcelTrackerHistory> _validator;
+
+	public ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId, 
+		ICreateParcelTrackingDetailsCommands createParcelTrackingDetailsCommands, 
+		ILogger<ParcelTrackerController> logger,
+		IValidator<ParcelTrackerHistory> validator)
 	{
 		_getTrackingFromParcelId = getTrackingFromParcelId;
+		_createParcelTrackingDetailsCommands = createParcelTrackingDetailsCommands;
 		_logger = logger;
+		_validator = validator;
 	}
 
 	/// <summary>
@@ -47,4 +55,37 @@ public class ParcelTrackerController : ControllerBase
 			return new StatusCodeResult(StatusCodes.Status500InternalServerError);
 		}
 	}
+
+	/// <summary>
+	/// Post history tracking details
+	/// </summary>
+	/// <param name="parcelTrackerHistory"></param>
+	/// <returns> Summary of the inserted element</returns>
+	[HttpPost()]
+	[ProducesResponseType(StatusCodes.Status201Created)]
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+	[DisableRequestSizeLimit]
+	public async Task<ActionResult<ParcelTrackerHistory>> ParcelToTrack(ParcelTrackerHistory parcelTrackerHistory)
+	{
+		try
+		{
+			ValidationResult validationResult = await _validator.ValidateAsync(parcelTrackerHistory).ConfigureAwait(false);
+			if (!validationResult.IsValid)
+			{
+				var errorsMessages = Results.ValidationProblem(validationResult.ToDictionary());
+				return BadRequest(errorsMessages);
+			}
+
+			await _createParcelTrackingDetailsCommands.CreateTrackingDetailsHistoryAsync(parcelTrackerHistory).ConfigureAwait(false);
+
+			return StatusCode(StatusCodes.Status201Created, parcelTrackerHistory);
+		}
+		catch (Exception ex)
+		{
+			_logger.LogError(ex.Message, ex);
+			return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+		}
+	}
+
 }

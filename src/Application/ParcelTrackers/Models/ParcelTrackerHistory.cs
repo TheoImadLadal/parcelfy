@@ -1,6 +1,6 @@
-﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
+﻿namespace parcelfy.Application.ParcelTrackers.Models;
 
-public class ParcelTrackHistory
+public class ParcelTrackerHistory
 {
 	public string ParcelId { get; set; }
 	public string EventCode { get; set; }
@@ -10,3 +10,4 @@ public class ParcelTrackHistory
 	public bool IsFinal { get; set; }
 	public string URL { get; set; }
 }
+

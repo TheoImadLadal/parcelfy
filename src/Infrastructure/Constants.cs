@@ -10,5 +10,5 @@ public static class Constants
 	/// <summary>
 	/// The LaPoste API
 	/// </summary>
-	public const string AzureDb = "AZURE_SQL_CONNECTION";
+	public const string AzureDb = "AzureSqlConnection";
 }

@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository.Abstractions;
 public interface IInMemoryParcelTrackingRepository
 {
-	public IEnumerable<ParcelTrackHistory> GetTrackingDetails(string parcelId);
+	Task<IEnumerable<ParcelTrackerHistoryDto>> GetTrackingDetails(string parcelId);
+	void PostTrackingDetailsHistory(ParcelTrackerHistoryDto parcelTrackerHistoryDto);
 }

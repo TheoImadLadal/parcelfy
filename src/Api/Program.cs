@@ -13,6 +13,7 @@ builder.Services.Configure<LaPosteApiConfiguration>(builder.Configuration.GetSec
 builder.Services.AddApiServices();
 // Application
 builder.Services.AddApplicationServices();
+
 // Infrastructure 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
