@@ -29,7 +29,6 @@ jobs:
         dotnet new tool-manifest
         dotnet tool install dotnet-reportgenerator-globaltool
         dotnet tool install dotnet-coverage
-        dotnet add tests/Unit/Api/Api.csproj package coverlet
     # Add coverlet.collector nuget package to test project - 'dotnet add <TestProject.cspoj> package coverlet
     - name: Test
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
