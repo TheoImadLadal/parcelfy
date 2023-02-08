@@ -1,17 +1,13 @@
-﻿using System.Reflection;
+﻿namespace parcelfy.Api;
 
-namespace parcelfy.Api;
-
+[ExcludeFromCodeCoverage]
 public static class ConfigureServices
 {
 	public static IServiceCollection AddApiServices(this IServiceCollection services)
 	{
 		// Add services to the container.
 		services.AddControllers()
-			.AddJsonOptions(options =>
-			{
-				options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-			});
+			.AddJsonOptions(options => options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull);
 		// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 		services.AddEndpointsApiExplorer();
 		services.AddSwaggerGen(options =>
@@ -24,7 +20,6 @@ public static class ConfigureServices
 				Contact = new OpenApiContact
 				{
 					Name = "Theo Imad Ladal",
-					Url = new Uri("https://github.com/TheoImadLadal/")
 				}
 			});
 
