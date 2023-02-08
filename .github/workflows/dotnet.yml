@@ -30,8 +30,8 @@ jobs:
         dotnet tool install dotnet-reportgenerator-globaltool
         dotnet tool install dotnet-coverage
     - name: Run the unit tests with code coverage
-      run: dotnet coverage collect dotnet test --filter TodoApiTests --output ${{ github.workspace }}/Tests/Coverage --output-format cobertura
+      run: dotnet coverage collect dotnet test --filter parcelfy --output ${{ github.workspace }}/tests/Coverage --output-format cobertura
     - name: Generate Report
       run: |
-        dotnet reportgenerator -reports:${{ github.workspace }}/Tests/Coverage.cobertura.xml -targetdir:"${{ github.workspace }}/Tests/coveragereport" -reporttypes:"MarkdownSummary;Html" -assemblyfilters:+parcelfy.Api
+        dotnet reportgenerator -reports:${{ github.workspace }}/tests/Coverage.cobertura.xml -targetdir:"${{ github.workspace }}/tests/coveragereport" -reporttypes:"MarkdownSummary;Html" -assemblyfilters:+parcelfy.Api
       
