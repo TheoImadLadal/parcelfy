@@ -3,6 +3,8 @@
 One single page to track parcels from the biggest carriers in France (Laposte, Colissimo, Chronopost)
 
 [![🚀 Build and deploy ASP.Net Core app to Azure Web App - Parcelfy](https://github.com/TheoImadLadal/parcelfy/actions/workflows/main_parcelfy.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/main_parcelfy.yml)
+<br/>
+[![👀🔬👌 .NET Tests](https://github.com/TheoImadLadal/parcelfy/actions/workflows/dotnet.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/dotnet.yml)
     
         
 ## 🛠️ Tech Stack
