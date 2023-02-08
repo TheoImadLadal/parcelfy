@@ -1,4 +1,5 @@
-﻿global using System.Reflection;
+﻿global using System.Diagnostics.CodeAnalysis;
+global using System.Reflection;
 global using System.Text.Json.Serialization;
 global using FluentValidation;
 global using FluentValidation.Results;
