@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure;
 
+[ExcludeFromCodeCoverage]
 public class LaPosteApiConfiguration
 {
 	public Uri Url { get; set; }

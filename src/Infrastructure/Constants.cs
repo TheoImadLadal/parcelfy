@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure;
 
+[ExcludeFromCodeCoverage]
 public static class Constants
 {
 	/// <summary>

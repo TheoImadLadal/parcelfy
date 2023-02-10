@@ -1,4 +1,5 @@
-﻿global using System.Reflection;
+﻿global using System.Diagnostics.CodeAnalysis;
+global using System.Reflection;
 global using FluentValidation;
 global using Mapster;
 global using MapsterMapper;

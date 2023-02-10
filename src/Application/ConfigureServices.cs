@@ -1,4 +1,6 @@
 ﻿namespace parcelfy.Application;
+
+[ExcludeFromCodeCoverage]
 public static class ConfigureServices
 {
 	public static IServiceCollection AddApplicationServices(this IServiceCollection services)
