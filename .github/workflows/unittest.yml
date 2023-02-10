@@ -39,7 +39,7 @@ jobs:
     - name: Create code coverage report
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:$(Agent.WorkFolder)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:'Cobertura'
+        reportgenerator -reports:TestResults/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura'
       
     - name: Copy Coverage To Predictable Location
       run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
