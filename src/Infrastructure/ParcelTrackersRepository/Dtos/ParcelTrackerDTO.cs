@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
 
+[ExcludeFromCodeCoverage]
 public class ParcelTrackerDto
 {
 	[JsonPropertyName("lang")]

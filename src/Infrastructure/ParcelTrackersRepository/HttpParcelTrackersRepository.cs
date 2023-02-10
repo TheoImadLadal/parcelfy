@@ -4,13 +4,11 @@ public class HttpParcelTrackersRepository : IHttpParcelTrackingRepository
 {
 	private readonly IOptions<LaPosteApiConfiguration> _parcelyApiConfiguration;
 	private readonly IHttpClientFactory _httpClientFactory;
-	private readonly ILogger<HttpParcelTrackersRepository> _logger;
 
-	public HttpParcelTrackersRepository(IOptions<LaPosteApiConfiguration> parcelyApiConfiguration, IHttpClientFactory httpClientFactory, ILogger<HttpParcelTrackersRepository> logger)
+	public HttpParcelTrackersRepository(IOptions<LaPosteApiConfiguration> parcelyApiConfiguration, IHttpClientFactory httpClientFactory)
 	{
 		_parcelyApiConfiguration = parcelyApiConfiguration;
 		_httpClientFactory = httpClientFactory;
-		_logger = logger;
 	}
 
 	public async Task<ParcelTrackerDto> GetTrackingDetails(string parcelId)

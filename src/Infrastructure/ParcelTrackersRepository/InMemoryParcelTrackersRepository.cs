@@ -6,7 +6,7 @@ public class InMemoryParcelTrackersRepository : IInMemoryParcelTrackingRepositor
 
 	public InMemoryParcelTrackersRepository(ParcelfyDbContext dbContext)
 	{
-		_dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+		_dbContext = dbContext;
 	}
 
 	public Task<IEnumerable<ParcelTrackerHistoryDto>> GetTrackingDetails(string parcelId)

@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure.Persistence;
 
+[ExcludeFromCodeCoverage]
 public class ParcelfyDbContext : DbContext
 {
 	public virtual DbSet<ParcelTrackerHistoryDto> ParcelTrackHistories { get; set; }

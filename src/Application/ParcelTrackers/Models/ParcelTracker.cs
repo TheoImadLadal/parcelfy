@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Application.ParcelTrackers.Models;
 
+[ExcludeFromCodeCoverage]
 public class ParcelTracker
 {
 	public int ReturnCode { get; set; }

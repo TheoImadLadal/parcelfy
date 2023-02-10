@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
 
+[ExcludeFromCodeCoverage]
 public class ParcelTrackerHistoryDto
 { 
 	public string ParcelId { get; set; } 

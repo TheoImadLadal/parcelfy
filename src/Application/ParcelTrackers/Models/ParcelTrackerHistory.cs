@@ -1,5 +1,6 @@
 ﻿namespace parcelfy.Application.ParcelTrackers.Models;
 
+[ExcludeFromCodeCoverage]
 public class ParcelTrackerHistory
 {
 	public string ParcelId { get; set; }
