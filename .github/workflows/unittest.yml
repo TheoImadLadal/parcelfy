@@ -35,19 +35,20 @@ jobs:
         dotnet tool install dotnet-coverage
           
       # Add coverlet.collector nuget package to test project - 'dotnet add <TestProject.cspoj> package coverlet
-    - name: Test
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
-      
-    - name: Copy Coverage to Predictable Location
-      run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
-
-    - name: Code Coverage Summary Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
+    - name: DotNetCoreCLI@2
+      id: dotnet test
       with:
-        filename: coverage/coverage.cobertura.xml
-        badge: true
-        format: 'markdown'
-        output: 'both'
+        command: 'test'
+        projects: '**/*.Tests.csproj'
+        arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage"'
+        publishTestResults: true
+
+    # Publish code coverage report to the pipeline
+    - name: PublishCodeCoverageResults@1
+      id: 'Publish code coverage'
+      with:
+        codeCoverageTool: Cobertura
+        summaryFileLocation: $(Agent.TempDirectory)/*/coverage.cobertura.xml # using ** instead of * finds duplicate coverage files
 
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
