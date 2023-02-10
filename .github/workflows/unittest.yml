@@ -34,21 +34,26 @@ jobs:
         dotnet tool install dotnet-reportgenerator-globaltool
         dotnet tool install dotnet-coverage
           
-      # Add coverlet.collector nuget package to test project - 'dotnet add <TestProject.cspoj> package coverlet
-    - uses: DotNetCoreCLI@2
-      name: dotnet test
-      with:
-        command: 'test'
-        projects: '**/*.Tests.csproj'
-        arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage"'
-        publishTestResults: true
+    - name: Test
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --logger trx --results-directory coverage
+      
+    - name: Copy Coverage To Predictable Location
+      run: cp coverage/*/coverage.cobertura.xml coverage/coverage.cobertura.xml
 
-    # Publish code coverage report to the pipeline
-    - uses: PublishCodeCoverageResults@1
-      name: 'Publish code coverage'
+    - name: ReportGenerator
+      uses: danielpalme/ReportGenerator-GitHub-Action@5.1.4
       with:
-        codeCoverageTool: Cobertura
-        summaryFileLocation: $(Agent.TempDirectory)/*/coverage.cobertura.xml # using ** instead of * finds duplicate coverage files
+        reports: 'coverage/*/coverage.cobertura.xml' # REQUIRED # The coverage reports that should be parsed (separated by semicolon). Globbing is supported.
+        targetdir: 'coveragereport' # REQUIRED # The directory where the generated report should be saved.
+        reporttypes: 'HtmlInline;Cobertura' # The output formats and scope (separated by semicolon)
+
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.0.2
+      with:
+        filename: coveragereport/coverage.cobertura.xml # double check path with targetdir parameter above
+        badge: true
+        format: 'markdown'
+        output: 'both'
 
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
