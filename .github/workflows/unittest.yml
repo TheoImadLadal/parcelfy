@@ -36,7 +36,7 @@ jobs:
     - name: Create code coverage report
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura'
+        reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'coverage.cobertura.xml'
 
     - name: ls Directory
       run: |
