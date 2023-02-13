@@ -37,6 +37,18 @@ jobs:
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
         reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura'
+        
+    - name: Publish Code Coverage Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage-results
+        path: coverage
+
+    - name: Publish summary file
+      uses: actions/upload-artifact@v2
+      with:
+        name: summary-file
+        path: coverage/Cobertura.xml
 
     - name: ls Directory
       run: |
