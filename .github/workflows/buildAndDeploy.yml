@@ -7,6 +7,10 @@
 name: 🚀 Build and deploy ASP.Net Core app to Azure Web App - Parcelfy
 
 on:
+  workflow_run:
+    workflows: ["Unit test coverage .NET - Parcelfy"]
+    types:
+      - completed
   push:
     branches: [ main ]
   workflow_dispatch:
@@ -17,6 +21,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set up .NET Core	
+        uses: actions/setup-dotnet@v1	
+        with:	
+          dotnet-version: '6.0.x'	
+          include-prerelease: true
+          
       - name: Build with dotnet
         run: dotnet build --configuration Release
 
