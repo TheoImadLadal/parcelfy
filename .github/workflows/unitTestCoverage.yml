@@ -44,6 +44,11 @@ jobs:
         badge: true
         format: 'markdown'
         output: 'both'
+        
+    - name: Copy Badge SVG to local folder 
+      run: |
+        mkdir -p tests/coverageBadge
+        cp coverage/badge_linecoverage.svg tests/coverageBadge/
       
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
