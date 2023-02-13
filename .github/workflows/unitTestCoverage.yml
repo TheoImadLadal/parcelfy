@@ -48,6 +48,12 @@ jobs:
         gist-id: 8ea0d39f4b7fad594d579c359705090b
         gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }}
         
+    - name: Print code coverage
+      run: echo "Code coverage percentage ${{steps.create_coverage_badge.outputs.percentage}}%"
+
+    - name: Print badge data
+      run: echo "Badge data ${{steps.test_step.outputs.badge}}"
+  
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
