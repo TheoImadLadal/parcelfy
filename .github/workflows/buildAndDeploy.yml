@@ -7,10 +7,6 @@
 name: 🚀 Build and deploy ASP.Net Core app to Azure Web App - Parcelfy
 
 on:
-  workflow_run:
-    workflows: ["Unit test coverage .NET - Parcelfy"]
-    types:
-      - completed
   push:
     branches: [ main ]
   workflow_dispatch:
