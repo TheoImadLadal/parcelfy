@@ -37,6 +37,17 @@ jobs:
         dotnet tool install -g dotnet-reportgenerator-globaltool
         reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura'
         
+    - name: Create Test Coverage Badge
+      uses: simon-k/dotnet-code-coverage-badge@v1.0.0
+      id: create_coverage_badge
+      with:
+        label: Unit Test Coverage
+        color: brightgreen
+        path: coverage/Cobertura.xml
+        gist-filename: code-coverage.json
+        gist-id: 8ea0d39f4b7fad594d579c359705090b
+        gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }}
+        
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
       with:
