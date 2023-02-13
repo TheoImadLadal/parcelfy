@@ -34,7 +34,7 @@ jobs:
       run: ls
       
     - name: Test
-      run: dotnet test --filter !tests --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      run: dotnet test --filter FullyQualifiedName\!~src --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
 
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
