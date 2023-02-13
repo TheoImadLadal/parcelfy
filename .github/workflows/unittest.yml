@@ -28,7 +28,7 @@ jobs:
       run: dotnet build --no-restore          
 
     - name: Create Coverage Directory
-      run: mkdir -p coverage
+      run: mkdir -p ~parcelfy/coverage
       
     - name: ls
       run: ls
