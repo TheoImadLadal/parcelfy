@@ -1,0 +1,13 @@
+﻿{
+	"stryker-config": {
+		"ignore-methods": [
+			"ConfigureAwait*", // Ignores all methods ending with Log
+			"*ConfigureAwait" // Ignores all methods ending with Log
+		],
+		"mutate": [
+			"!**/*.Program.cs",
+			"!**/Program.cs",
+			"!*/*.Program.cs"
+		]
+	}
+}
