@@ -30,6 +30,9 @@ jobs:
     - name: Create Coverage Directory
       run: mkdir -p coverage
       
+    - name: Ls Dir
+      run: ls
+      
     - name: Test
       run: dotnet test src/parcelfy.sln --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
 
