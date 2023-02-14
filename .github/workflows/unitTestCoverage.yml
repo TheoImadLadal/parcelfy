@@ -58,6 +58,7 @@ jobs:
         api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
         test_format: XUNIT2
         test_framework: XUNIT2
+        test_path: <test_results_path_optional>
         coverage_format: COBERTURA/XML
         coverage_path: coverage/Cobertura.xml
         
