@@ -5,6 +5,10 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 [![🚀 Build and deploy - Parcelfy](https://github.com/TheoImadLadal/parcelfy/actions/workflows/buildAndDeploy.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/buildAndDeploy.yml)
 <br/>
 [![✍ Unit test coverage .NET - Parcelfy](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml)
+<br/>
+[![Coverage Status](https://coveralls.io/repos/github/TheoImadLadal/parcelfy/badge.svg?branch=main)](https://coveralls.io/github/TheoImadLadal/parcelfy?branch=main)
+<br/>
+[![🔎 CodeQL](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml)
     
         
 ## 🛠️ Tech Stack
