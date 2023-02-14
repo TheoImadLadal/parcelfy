@@ -14,6 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    
+    # Make sure you put workflow kit action on top of all the steps 
+    - name: Collect Workflow Telemetry
+      uses: runforesight/foresight-workflow-kit-action@v1
+      if: ${{ always() }}
+      with:
+        api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23       
   
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -50,6 +57,17 @@ jobs:
         mkdir -p tests/coverageBadge
         cp coverage/badge_linecoverage.svg tests/coverageBadge/
       
+    - name: Analyze Test and/or Coverage Results
+      uses: runforesight/foresight-test-kit-action@v1
+      if: ${{ always() }}
+      with:
+        api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
+        test_format: XUNIT2
+        test_framework: XUNIT2
+        test_path: <test_results_path_optional>
+        coverage_format: COBERTURA/XML
+        coverage_path: <coverage_results_path_optional>
+        
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
       if: github.event_name == 'pull_request'
