@@ -3,12 +3,15 @@
 One single page to track parcels from the biggest carriers in France (Laposte, Colissimo, Chronopost)
 
 [![🚀 Build and deploy - Parcelfy](https://github.com/TheoImadLadal/parcelfy/actions/workflows/buildAndDeploy.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/buildAndDeploy.yml)
-<br/>
 [![✍ Unit test coverage .NET - Parcelfy](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml)
-<br/>
-[![Coverage Status](https://coveralls.io/repos/github/TheoImadLadal/parcelfy/badge.svg?branch=main)](https://coveralls.io/github/TheoImadLadal/parcelfy?branch=main)
-<br/>
 [![🔎 CodeQL](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml)
+
+![GitHub language count](https://img.shields.io/github/languages/count/theoimadladal/parcelfy)
+![GitHub top language](https://img.shields.io/github/languages/top/theoimadladal/parcelfy)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/theoimadladal/parcelfy)
+![GitHub repo size](https://img.shields.io/github/repo-size/theoimadladal/parcelfy)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/theoimadladal/parcelfy)
+
     
         
 ## 🛠️ Tech Stack
