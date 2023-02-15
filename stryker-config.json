@@ -8,6 +8,10 @@
 			"!**/*.Program.cs",
 			"!**/Program.cs",
 			"!*/*.Program.cs"
-		]
+		],
+		"project-info": {
+			"name": "github.com/TheoImadLadal/parcelfy",
+			"version": "main"
+		}
 	}
 }
