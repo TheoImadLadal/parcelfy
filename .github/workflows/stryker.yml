@@ -1,0 +1,28 @@
+name: 🐱‍👤 Stryker .NET Mutations
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  stryker-mutate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up .NET Core	
+        uses: actions/setup-dotnet@v1	
+        with:	
+          dotnet-version: '6.0.x'	
+          include-prerelease: true
+          
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        
+      - name: Instal Stryker
+        run: dotnet tool install -g dotnet-stryker
+
+      - name: Run Stryker Mutations
+        run: dotnet stryker --reporter "dashboard" --api-key ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+
