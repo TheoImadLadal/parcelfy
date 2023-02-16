@@ -3,7 +3,7 @@
 
 
 
-name: 🚀 Build and Deploy - Parcelfy
+name: 🚀 Build and Deploy
 
 on:
   push:
