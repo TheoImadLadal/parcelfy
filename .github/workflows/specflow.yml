@@ -22,7 +22,7 @@ jobs:
         run: dotnet build --configuration Release
 
       - name : Specflow execution 
-        uses: actions/cryptic-wizard/run-specflow-tests@v1.3.0
+        uses: ./
         with:
           test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
           test-assembly-dll: tests/Bdd/Bdd.dll
