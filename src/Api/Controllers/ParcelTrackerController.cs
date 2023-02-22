@@ -40,7 +40,7 @@ public class ParcelTrackerController : ControllerBase
 				return BadRequest();
 			}
 
-			ParcelTracker result = await _getTrackingFromParcelId.GetTrackingDetailsAsync(parcelId).ConfigureAwait(false);
+			ParcelTracker result = await _getTrackingFromParcelId.GetTrackingDetailsAsync(parcelId);
 
 			if (result is null)
 			{
@@ -70,14 +70,14 @@ public class ParcelTrackerController : ControllerBase
 	{
 		try
 		{
-			ValidationResult validationResult = await _validator.ValidateAsync(parcelTrackerHistory).ConfigureAwait(false);
+			ValidationResult validationResult = await _validator.ValidateAsync(parcelTrackerHistory);
 			if (!validationResult.IsValid)
 			{
 				var errorsMessages = Results.ValidationProblem(validationResult.ToDictionary());
 				return BadRequest(errorsMessages);
 			}
 
-			await _createParcelTrackingDetailsCommands.CreateTrackingDetailsHistoryAsync(parcelTrackerHistory).ConfigureAwait(false);
+			await _createParcelTrackingDetailsCommands.CreateTrackingDetailsHistoryAsync(parcelTrackerHistory);
 
 			return StatusCode(StatusCodes.Status201Created, parcelTrackerHistory);
 		}

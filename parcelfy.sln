@@ -23,17 +23,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
 		README.md = README.md
+		stryker-config.json = stryker-config.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2044518A-077F-4E36-A078-AAF0E8067B96}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{C5C805EE-3D08-46DC-BE2E-0563D2CF9C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "tests\Unit\Api\Api.csproj", "{6D0325A6-A28C-46D1-AA2B-6CEFD34B7C75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "tests\Unit\Api\Api.csproj", "{6D0325A6-A28C-46D1-AA2B-6CEFD34B7C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "tests\Unit\Application\Application.csproj", "{A2096EB6-0265-4F36-A7BB-68345359558F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "tests\Unit\Application\Application.csproj", "{A2096EB6-0265-4F36-A7BB-68345359558F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "tests\Unit\Infrastructure\Infrastructure.csproj", "{7186A582-F12C-4E5F-8B90-2399E01C492C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "tests\Unit\Infrastructure\Infrastructure.csproj", "{7186A582-F12C-4E5F-8B90-2399E01C492C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bdd", "Bdd", "{9F88CC28-4452-4C6E-BF15-3E009D4AFDF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bdd", "tests\Bdd\Bdd\Bdd.csproj", "{2BB00826-5202-4CB7-A654-08C7A25AF5A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +70,10 @@ Global
 		{7186A582-F12C-4E5F-8B90-2399E01C492C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7186A582-F12C-4E5F-8B90-2399E01C492C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7186A582-F12C-4E5F-8B90-2399E01C492C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB00826-5202-4CB7-A654-08C7A25AF5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB00826-5202-4CB7-A654-08C7A25AF5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB00826-5202-4CB7-A654-08C7A25AF5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB00826-5202-4CB7-A654-08C7A25AF5A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +86,8 @@ Global
 		{6D0325A6-A28C-46D1-AA2B-6CEFD34B7C75} = {C5C805EE-3D08-46DC-BE2E-0563D2CF9C69}
 		{A2096EB6-0265-4F36-A7BB-68345359558F} = {C5C805EE-3D08-46DC-BE2E-0563D2CF9C69}
 		{7186A582-F12C-4E5F-8B90-2399E01C492C} = {C5C805EE-3D08-46DC-BE2E-0563D2CF9C69}
+		{9F88CC28-4452-4C6E-BF15-3E009D4AFDF4} = {2044518A-077F-4E36-A078-AAF0E8067B96}
+		{2BB00826-5202-4CB7-A654-08C7A25AF5A0} = {9F88CC28-4452-4C6E-BF15-3E009D4AFDF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81881E06-A10B-465F-B2FC-4C5186A58CC2}

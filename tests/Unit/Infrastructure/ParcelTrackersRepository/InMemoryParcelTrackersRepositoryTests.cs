@@ -48,7 +48,7 @@ public class InMemoryParcelTrackersRepositoryTests
 		_dbContextMock.Setup(x => x.ParcelTrackHistories).Returns(ExpectedParcelTrackerHistorydto.AsQueryable().BuildMockDbSet());
 
 		// Act
-		var result = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
+		var result = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId);
 
 		// Assert
 		Assert.Equal(ExpectedParcelTrackerHistorydto, result);

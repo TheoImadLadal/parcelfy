@@ -60,7 +60,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			ReturnsAsync(ExpectedParcelTracker);
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId);
 
 		// Assert
 		httpResponse
@@ -85,7 +85,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			ReturnsAsync(ExpectedParcelTracker);
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId);
 
 		// Assert
 		httpResponse
@@ -105,7 +105,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			ReturnsAsync(parceltracker);
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId);
 
 		// Assert
 		httpResponse
@@ -124,7 +124,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			Throws<Exception>();
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(parcelId);
 
 		// Assert
 		var statusCodeResult = httpResponse.Result as StatusCodeResult;
@@ -137,11 +137,13 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			Should().
 			Be(StatusCodes.Status500InternalServerError);
 
+#pragma warning disable CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
 		_loggerMock.Verify(x => x.Log(LogLevel.Error,
 								It.IsAny<EventId>(),
 								It.IsAny<It.IsAnyType>(),
 								It.IsAny<Exception>(),
 								(Func<It.IsAnyType, Exception, string>)It.IsAny<object>()), Times.Once);
+#pragma warning restore CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
 	}
 	#endregion GET
 
@@ -158,7 +160,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			Returns(Task.CompletedTask);
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory);
 
 		// Assert
 		var statusCodeResult = httpResponse.Result as StatusCodeResult;
@@ -188,7 +190,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			ReturnsAsync(validationResult);
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory);
 
 		// Assert
 		var statusCodeResult = httpResponse.Result as StatusCodeResult;
@@ -209,7 +211,7 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			Throws<Exception>();
 
 		// Act
-		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory).ConfigureAwait(false);
+		var httpResponse = await _parcelTrackerController.ParcelToTrack(ExpectedParcelTrackerhistory);
 
 		// Assert
 		var statusCodeResult = httpResponse.Result as StatusCodeResult;
@@ -222,11 +224,13 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 			Should().
 			Be(StatusCodes.Status500InternalServerError);
 
+#pragma warning disable CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
 		_loggerMock.Verify(x => x.Log(LogLevel.Error,
 								It.IsAny<EventId>(),
 								It.IsAny<It.IsAnyType>(),
 								It.IsAny<Exception>(),
 								(Func<It.IsAnyType, Exception, string>)It.IsAny<object>()), Times.Once);
+#pragma warning restore CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
 	}
 	#endregion POST 
 

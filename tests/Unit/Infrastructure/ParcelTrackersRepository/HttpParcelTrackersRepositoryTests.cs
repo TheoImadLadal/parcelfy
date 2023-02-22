@@ -96,7 +96,7 @@ public class HttpParcelTrackersRepositoryTests
 			Returns(httpClient);
 
 		// Act
-		var result = await _httpParcelTrackersRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
+		var result = await _httpParcelTrackersRepository.GetTrackingDetails(parcelId);
 
 		// Assert
 		Assert.NotNull(result);
@@ -136,10 +136,10 @@ public class HttpParcelTrackersRepositoryTests
 			Returns(httpClient);
 
 		// Act
-		var result = Assert.ThrowsAsync<InvalidOperationException>(() => _httpParcelTrackersRepository.GetTrackingDetails(parcelId));
+		var result = await Assert.ThrowsAsync<InvalidOperationException>(() => _httpParcelTrackersRepository.GetTrackingDetails(parcelId));
 
 		// Assert
-		Assert.Equal("Operation is not valid due to the current state of the object.", result.Result.Message);
+		Assert.Equal("Operation is not valid due to the current state of the object.", result.Message);
 	}
 
 	[Fact]

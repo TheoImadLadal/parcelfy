@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+		<IsTestProject>true</IsTestProject>
+    <Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>parcelfy.tests.Bdd</AssemblyName>
+    <RootNamespace>parcelfy.tests.Bdd</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+		<PackageReference Include="Flurl.Http" Version="3.2.4" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+		<PackageReference Include="Moq" Version="4.18.4" />
+    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.9.40" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
+    <PackageReference Include="FluentAssertions" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Drivers\" />
+    <Folder Include="Support\" />
+  </ItemGroup>
+
+  <ItemGroup>
+		<ProjectReference Include="..\..\..\src\Api\Api.csproj" />
+		<ProjectReference Include="..\..\Unit\Infrastructure\Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

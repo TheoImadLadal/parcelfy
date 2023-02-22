@@ -129,7 +129,7 @@ public class GetParcelTrackingDetailsByIdTests
 			Returns(ExpectedParcelTracker);
 
 		// Act
-		var result = await _getParcelTrackingDetailsById.GetTrackingDetailsAsync(parcelId).ConfigureAwait(false);
+		var result = await _getParcelTrackingDetailsById.GetTrackingDetailsAsync(parcelId);
 
 		// Assert
 		Assert.NotNull(result);
@@ -151,7 +151,7 @@ public class GetParcelTrackingDetailsByIdTests
 			ReturnsAsync(parcelTrackerDto);
 
 		// Act
-		var result = await _getParcelTrackingDetailsById.GetTrackingDetailsAsync(parcelId).ConfigureAwait(false);
+		var result = await _getParcelTrackingDetailsById.GetTrackingDetailsAsync(parcelId);
 
 		// Assert
 		Assert.Null(result);
