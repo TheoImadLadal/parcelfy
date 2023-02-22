@@ -26,4 +26,5 @@ jobs:
         with:
           test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
           test-assembly-dll: tests/Bdd/Bdd.dll
-          output-html: SpecflowResult.html
+          test-execution-json: tests/Bdd/Bdd/TestExecution.json
+          output-html: tests/Bdd/Bdd/SpecflowResult.html
