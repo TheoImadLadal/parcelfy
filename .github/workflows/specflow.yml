@@ -27,5 +27,3 @@ jobs:
           test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
           test-assembly-dll: tests/Bdd/Bdd.dll
           output-html: SpecflowResult.html
-          framework: net6.0
-          upload-artifact: false
