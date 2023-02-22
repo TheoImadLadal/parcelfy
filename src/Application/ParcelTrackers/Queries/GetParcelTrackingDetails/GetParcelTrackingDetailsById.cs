@@ -18,7 +18,7 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 
 	public async Task<ParcelTracker> GetTrackingDetailsAsync(string parcelId)
 	{
-		return await GetAllTrackingDetailsAsync(parcelId).ConfigureAwait(false);		
+		return await GetAllTrackingDetailsAsync(parcelId);		
 	}
 
 
@@ -27,7 +27,7 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 		ParcelTracker parcelTracker = null;
 		List<Event> events = new();
 
-		IEnumerable<ParcelTrackerHistoryDto> parcelTrackerHistoryDtos = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
+		IEnumerable<ParcelTrackerHistoryDto> parcelTrackerHistoryDtos = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId);
 
 		if (parcelTrackerHistoryDtos.Any())
 		{
@@ -47,7 +47,7 @@ public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
 
 		if (parcelTracker is null)
 		{
-			ParcelTrackerDto parcelTrackerFromDto = await _httpParcelTrackingRepository.GetTrackingDetails(parcelId).ConfigureAwait(false);
+			ParcelTrackerDto parcelTrackerFromDto = await _httpParcelTrackingRepository.GetTrackingDetails(parcelId);
 			if (parcelTrackerFromDto is not null)
 			{
 				parcelTracker = _mapper.Map<ParcelTracker>(parcelTrackerFromDto);

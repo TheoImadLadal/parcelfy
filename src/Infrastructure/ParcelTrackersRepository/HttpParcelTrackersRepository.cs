@@ -21,14 +21,14 @@ public class HttpParcelTrackersRepository : IHttpParcelTrackingRepository
 		httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 		Uri uri = new($"{httpClient.BaseAddress}{_parcelyApiConfiguration.Value.Url}{_parcelyApiConfiguration.Value.Route}{parcelId}");
 
-		HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(uri).ConfigureAwait(false);
+		HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(uri);
 
 		if (httpResponseMessage is null || !httpResponseMessage.IsSuccessStatusCode || httpResponseMessage.Content is null)
 		{
 			throw new InvalidOperationException();
 		}
 
-		string content = await httpResponseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
+		string content = await httpResponseMessage.Content.ReadAsStringAsync();
 		if (!string.IsNullOrEmpty(content))
 		{
 			result = JsonSerializer.Deserialize<ParcelTrackerDto>(content);
