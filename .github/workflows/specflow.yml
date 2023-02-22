@@ -25,6 +25,6 @@ jobs:
         uses: ./
         with:
           test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
-          test-assembly-dll: tests/Bdd/Bdd.dll
-          test-execution-json: tests/Bdd/Bdd/TestExecution.json
-          output-html: tests/Bdd/Bdd/SpecflowResult.html
+          test-assembly-dll: parcelfy.tests.Bdd.dll
+          test-execution-json: TestExecution.json
+          output-html: SpecflowResult.html
