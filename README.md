@@ -6,7 +6,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 [![✍ Unit test coverage - threshold 85%](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/unitTestCoverage.yml)
 [![🔎 CodeQL](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/codeql.yml)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FTheoImadLadal%2Fparcelfy%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/TheoImadLadal/parcelfy/main)
-
+[![👌 Specflow tests](https://github.com/TheoImadLadal/parcelfy/actions/workflows/specflow.yml/badge.svg)](https://github.com/TheoImadLadal/parcelfy/actions/workflows/specflow.yml)
 ![GitHub language count](https://img.shields.io/github/languages/count/theoimadladal/parcelfy)
 ![GitHub top language](https://img.shields.io/github/languages/top/theoimadladal/parcelfy)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/theoimadladal/parcelfy)
@@ -22,7 +22,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 * [x] [FluentValidation](https://fluentvalidation.net/)
 * [x] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [X] [Stryker testing](https://stryker-mutator.io/)
-* [ ] [Specflow BDD](https://specflow.org/)
+* [X] [Specflow BDD](https://specflow.org/)
 * [ ] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6)
 * [ ] [Circuit Breaker setup](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
  
