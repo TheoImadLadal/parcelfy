@@ -13,7 +13,7 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 ![GitHub repo size](https://img.shields.io/github/repo-size/theoimadladal/parcelfy)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/theoimadladal/parcelfy)
 
-[![TheoImadLadal's GitHub stats](https://github-readme-stats.vercel.app/api?username=theoimadladal&show_icons=true&theme=transparent)](https://github.com/theoimadladal/github-readme-stats)
+[![TheoImadLadal's GitHub stats](https://github-readme-stats.vercel.app/api?username=theoimadladal&show_icons=true&theme=transparent&hide=stars,issues,contribs)](https://github.com/theoimadladal/github-readme-stats)
 
 
     
