@@ -1,0 +1,30 @@
+name: 👌 Specflow tests
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  specflow:
+    name: 👌 Specflow
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up .NET Core	
+        uses: actions/setup-dotnet@v1	
+        with:	
+          dotnet-version: '6.0.x'	
+          include-prerelease: true
+          
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+
+      - name : Specflow execution 
+        uses: ./
+        with:
+          test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
+          test-assembly-dll: parcelfy.tests.Bdd.dll
+          test-execution-json: TestExecution.json
+          output-html: SpecflowResult.html
