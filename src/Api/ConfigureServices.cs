@@ -3,7 +3,7 @@
 [ExcludeFromCodeCoverage]
 public static class ConfigureServices
 {
-	public static IServiceCollection AddApiServices(this IServiceCollection services)
+	public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration configuration)
 	{
 		// Add services to the container.
 		services.AddControllers()
@@ -22,11 +22,50 @@ public static class ConfigureServices
 					Name = "Theo Imad Ladal",
 				}
 			});
+			options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+			{
+				In = ParameterLocation.Header,
+				Description = "Please enter a valid token",
+				Name = "Authorization",
+				Type = SecuritySchemeType.Http,
+				BearerFormat = "JWT",
+				Scheme = "Bearer"
+			});
+			options.AddSecurityRequirement(new OpenApiSecurityRequirement
+			{
+				{
+					new OpenApiSecurityScheme
+					{
+						Reference = new OpenApiReference
+						{
+							Type=ReferenceType.SecurityScheme,
+							Id="Bearer"
+						}
+					},
+					new string[]{}
+				}
+			});
 
 			// Set the comments path for the Swagger JSON and UI.
 			var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 			var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 			options.IncludeXmlComments(xmlPath);
+		});
+
+		// Add authnetication
+		services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+		.AddJwtBearer( options =>
+		{
+			options.TokenValidationParameters = new TokenValidationParameters
+			{
+				ValidIssuer = configuration["Authentication:Issuer"],
+				ValidAudience = configuration["Authentication:Audience"],
+				IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Authentication:Key"])),
+				ValidateIssuer = true,
+				ValidateAudience = true,
+				ValidateLifetime = true,
+				ValidateIssuerSigningKey = true
+			};
 		});
 
 		services.AddScoped<IValidator<ParcelTrackerHistory>, ParcelTrackerHistoryValidator>();

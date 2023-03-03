@@ -10,10 +10,9 @@ if (builder.Environment.IsDevelopment())
 // Add services to Configuration Appsettings
 builder.Services.Configure<LaPosteApiConfiguration>(builder.Configuration.GetSection(Constants.LaPoste));
 // Api
-builder.Services.AddApiServices();
+builder.Services.AddApiServices(builder.Configuration);
 // Application
 builder.Services.AddApplicationServices();
-
 // Infrastructure 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
@@ -25,6 +24,7 @@ app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
