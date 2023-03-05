@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authorization;
+
 namespace parcelfy.Controllers;
 
 [ApiController]
@@ -26,9 +28,11 @@ public class ParcelTrackerController : ControllerBase
 	/// </summary>
 	/// <param name="parcelId"></param>
 	/// <returns>Tracking details</returns>
+	[Authorize]
 	[HttpGet("{parcelId}")]
 	[ProducesResponseType(StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 	public async Task<ActionResult<ParcelTracker>> ParcelToTrack(string parcelId)
@@ -61,6 +65,7 @@ public class ParcelTrackerController : ControllerBase
 	/// </summary>
 	/// <param name="parcelTrackerHistory"></param>
 	/// <returns> Summary of the inserted element</returns>
+	[Authorize]
 	[HttpPost()]
 	[ProducesResponseType(StatusCodes.Status201Created)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]

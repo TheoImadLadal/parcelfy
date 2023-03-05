@@ -26,8 +26,8 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 * [x] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
 * [X] [Stryker testing](https://stryker-mutator.io/)
 * [X] [Specflow BDD](https://specflow.org/)
-* [ ] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6)
-* [ ] [Circuit Breaker setup](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
+* [X] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6)
+* [ ] [Circuit Breaker](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
  
 *And more to come.*    
      
