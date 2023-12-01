@@ -24,7 +24,7 @@ jobs:
       - name : Specflow execution 
         uses: ./
         with:
-          test-assembly-path: tests/Bdd/Bdd/bin/Release/net6.0
+          test-assembly-path: tests/Bdd/Bdd/bin/Release/net8.0
           test-assembly-dll: parcelfy.tests.Bdd.dll
           test-execution-json: TestExecution.json
           output-html: SpecflowResult.html
