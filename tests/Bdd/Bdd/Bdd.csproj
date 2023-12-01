@@ -2,27 +2,27 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-		<IsTestProject>true</IsTestProject>
+	<IsTestProject>true</IsTestProject>
     <Nullable>enable</Nullable>
-		<IsPackable>false</IsPackable>
+	<IsPackable>false</IsPackable>
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>parcelfy.tests.Bdd</AssemblyName>
     <RootNamespace>parcelfy.tests.Bdd</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-		<PackageReference Include="coverlet.collector" Version="6.0.0">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Flurl.Http" Version="3.2.4" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
+	<PackageReference Include="coverlet.collector" Version="6.0.0">
+	<PrivateAssets>all</PrivateAssets>
+	<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	</PackageReference>
+	<PackageReference Include="Flurl.Http" Version="3.2.4" />
+	<PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-		<PackageReference Include="Moq" Version="4.20.70" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+	<PackageReference Include="Moq" Version="4.20.70" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
     <PackageReference Include="SpecFlow.xUnit" Version="3.9.74" />
     <PackageReference Include="xunit" Version="2.6.2" />
