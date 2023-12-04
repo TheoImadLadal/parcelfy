@@ -1,15 +1,9 @@
 ﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository;
 
-public class HttpParcelTrackersRepository : IHttpParcelTrackingRepository
+public class HttpParcelTrackersRepository(IOptions<LaPosteApiConfiguration> parcelyApiConfiguration, IHttpClientFactory httpClientFactory) : IHttpParcelTrackingRepository
 {
-	private readonly IOptions<LaPosteApiConfiguration> _parcelyApiConfiguration;
-	private readonly IHttpClientFactory _httpClientFactory;
-
-	public HttpParcelTrackersRepository(IOptions<LaPosteApiConfiguration> parcelyApiConfiguration, IHttpClientFactory httpClientFactory)
-	{
-		_parcelyApiConfiguration = parcelyApiConfiguration;
-		_httpClientFactory = httpClientFactory;
-	}
+	private readonly IOptions<LaPosteApiConfiguration> _parcelyApiConfiguration = parcelyApiConfiguration;
+	private readonly IHttpClientFactory _httpClientFactory = httpClientFactory;
 
 	public async Task<ParcelTrackerDto> GetTrackingDetails(string parcelId)
 	{

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using parcelfy.Application.ParcelTrackers.Models;
 using Xunit;
 
@@ -56,14 +55,14 @@ public class ParcelTrackerHistoryValidatorTests
 
 		// Assert
 		Assert.False(result.IsValid);
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Parcel Id' must not be empty.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Parcel Id' must be between 14 and 16 characters. You entered 0 characters.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Code' must not be empty.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Code' must be 3 characters in length. You entered 0 characters.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Message' must not be empty.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Product' must not be empty.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Is Final' must not be empty.");
-		Assert.Contains(result.Errors, x => x.ErrorMessage == "'URL' must not be empty.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Parcel Id' ne doit pas être vide.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Parcel Id' doit contenir entre 14 et 16 caractères. 0 caractères ont été saisis.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Code' ne doit pas être vide.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Code' doit être d’une longueur de 3 caractères. 0 caractères ont été saisis.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Event Message' ne doit pas être vide.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Product' ne doit pas être vide.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'Is Final' ne doit pas être vide.");
+		Assert.Contains(result.Errors, x => x.ErrorMessage == "'URL' ne doit pas être vide.");
 	}
 }
 

@@ -5,23 +5,15 @@ namespace parcelfy.Controllers;
 [ApiController]
 [Route("parcel-tracker")]
 [Produces("application/json")]
-public class ParcelTrackerController : ControllerBase
+public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId,
+	ICreateParcelTrackingDetailsCommands createParcelTrackingDetailsCommands,
+	ILogger<ParcelTrackerController> logger,
+	IValidator<ParcelTrackerHistory> validator) : ControllerBase
 {
-	private readonly IGetParcelTrackingDetailsById _getTrackingFromParcelId;
-	private readonly ICreateParcelTrackingDetailsCommands _createParcelTrackingDetailsCommands;
-	private readonly ILogger<ParcelTrackerController> _logger;
-	private readonly IValidator<ParcelTrackerHistory> _validator;
-
-	public ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId, 
-		ICreateParcelTrackingDetailsCommands createParcelTrackingDetailsCommands, 
-		ILogger<ParcelTrackerController> logger,
-		IValidator<ParcelTrackerHistory> validator)
-	{
-		_getTrackingFromParcelId = getTrackingFromParcelId;
-		_createParcelTrackingDetailsCommands = createParcelTrackingDetailsCommands;
-		_logger = logger;
-		_validator = validator;
-	}
+	private readonly IGetParcelTrackingDetailsById _getTrackingFromParcelId = getTrackingFromParcelId;
+	private readonly ICreateParcelTrackingDetailsCommands _createParcelTrackingDetailsCommands = createParcelTrackingDetailsCommands;
+	private readonly ILogger<ParcelTrackerController> _logger = logger;
+	private readonly IValidator<ParcelTrackerHistory> _validator = validator;
 
 	/// <summary>
 	/// Get tracking details for a specific parcel Id

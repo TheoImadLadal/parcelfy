@@ -3,14 +3,9 @@ namespace parcelfy.Controllers;
 [ApiController]
 [Route("token")]
 [Produces("application/json")]
-public class TokenController : ControllerBase
+public class TokenController(IConfiguration configuration) : ControllerBase
 {
-	private readonly IConfiguration _configuration;
-
-	public TokenController(IConfiguration configuration)
-	{
-		_configuration = configuration;
-	}
+	private readonly IConfiguration _configuration = configuration;
 
 	/// <summary>
 	/// Generate token
@@ -41,7 +36,7 @@ public class TokenController : ControllerBase
 				Expires = DateTime.UtcNow.AddMinutes(5),
 				Issuer = issuer,
 				Audience = audience,
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha512Signature)
+				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha512Signature)
 			};
 			var tokenHandler = new JwtSecurityTokenHandler();
 			var token = tokenHandler.CreateToken(tokenDescriptor);

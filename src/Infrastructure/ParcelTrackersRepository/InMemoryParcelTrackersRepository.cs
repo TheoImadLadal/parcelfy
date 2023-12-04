@@ -1,17 +1,12 @@
 ﻿namespace parcelfy.Infrastructure.ParcelTrackersRepository;
 
-public class InMemoryParcelTrackersRepository : IInMemoryParcelTrackingRepository
+public class InMemoryParcelTrackersRepository(ParcelfyDbContext dbContext) : IInMemoryParcelTrackingRepository
 {
-	private readonly ParcelfyDbContext _dbContext;
-
-	public InMemoryParcelTrackersRepository(ParcelfyDbContext dbContext)
-	{
-		_dbContext = dbContext;
-	}
+	private readonly ParcelfyDbContext _dbContext = dbContext;
 
 	public Task<IEnumerable<ParcelTrackerHistoryDto>> GetTrackingDetails(string parcelId)
 	{
-		IEnumerable<ParcelTrackerHistoryDto> parcelTrackHistories =_dbContext.ParcelTrackHistories.Where(p => p.ParcelId == parcelId).ToList();
+		IEnumerable<ParcelTrackerHistoryDto> parcelTrackHistories = _dbContext.ParcelTrackHistories.Where(p => p.ParcelId == parcelId).ToList();
 		return Task.FromResult(parcelTrackHistories);
 	}
 

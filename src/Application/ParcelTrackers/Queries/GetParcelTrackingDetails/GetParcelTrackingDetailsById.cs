@@ -2,36 +2,29 @@
 
 namespace parcelfy.Application.ParcelTrackers.Queries.GetParcelTrackers;
 
-public class GetParcelTrackingDetailsById : IGetParcelTrackingDetailsById
+public class GetParcelTrackingDetailsById(IMapper mapper, IHttpParcelTrackingRepository httpParcelTrackingRepository, IInMemoryParcelTrackingRepository inMemoryParcelTrackersRepository) : IGetParcelTrackingDetailsById
 {
 
-	private readonly IMapper _mapper;
-	private readonly IHttpParcelTrackingRepository _httpParcelTrackingRepository;
-	private readonly IInMemoryParcelTrackingRepository _inMemoryParcelTrackersRepository;
-
-	public GetParcelTrackingDetailsById(IMapper mapper,	IHttpParcelTrackingRepository httpParcelTrackingRepository,	IInMemoryParcelTrackingRepository inMemoryParcelTrackersRepository)
-	{
-		_mapper = mapper;
-		_httpParcelTrackingRepository = httpParcelTrackingRepository;
-		_inMemoryParcelTrackersRepository = inMemoryParcelTrackersRepository;
-	}
+	private readonly IMapper _mapper = mapper;
+	private readonly IHttpParcelTrackingRepository _httpParcelTrackingRepository = httpParcelTrackingRepository;
+	private readonly IInMemoryParcelTrackingRepository _inMemoryParcelTrackersRepository = inMemoryParcelTrackersRepository;
 
 	public async Task<ParcelTracker> GetTrackingDetailsAsync(string parcelId)
 	{
-		return await GetAllTrackingDetailsAsync(parcelId);		
+		return await GetAllTrackingDetailsAsync(parcelId);
 	}
 
 
 	private async Task<ParcelTracker> GetAllTrackingDetailsAsync(string parcelId)
 	{
 		ParcelTracker parcelTracker = null;
-		List<Event> events = new();
+		List<Event> events = [];
 
 		IEnumerable<ParcelTrackerHistoryDto> parcelTrackerHistoryDtos = await _inMemoryParcelTrackersRepository.GetTrackingDetails(parcelId);
 
 		if (parcelTrackerHistoryDtos.Any())
 		{
-			foreach(var parcelTrackerHistoryDto in parcelTrackerHistoryDtos)
+			foreach (var parcelTrackerHistoryDto in parcelTrackerHistoryDtos)
 			{
 				events.Add(new Event()
 				{

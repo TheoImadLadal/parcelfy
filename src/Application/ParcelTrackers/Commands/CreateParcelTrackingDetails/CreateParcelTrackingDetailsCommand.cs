@@ -1,16 +1,10 @@
 ﻿namespace parcelfy.Application.ParcelTrackers.Commands.CreateParcelTrackingDetails;
 
-public class CreateParcelTrackingDetailsCommand : ICreateParcelTrackingDetailsCommands
+public class CreateParcelTrackingDetailsCommand(IMapper mapper, IInMemoryParcelTrackingRepository inMemoryParcelTrackersRepository) : ICreateParcelTrackingDetailsCommands
 {
 
-	private readonly IMapper _mapper;
-	private readonly IInMemoryParcelTrackingRepository _inMemoryParcelTrackersRepository;
-
-	public CreateParcelTrackingDetailsCommand(IMapper mapper, IInMemoryParcelTrackingRepository inMemoryParcelTrackersRepository)
-	{
-		_mapper = mapper;
-		_inMemoryParcelTrackersRepository = inMemoryParcelTrackersRepository;
-	}
+	private readonly IMapper _mapper = mapper;
+	private readonly IInMemoryParcelTrackingRepository _inMemoryParcelTrackersRepository = inMemoryParcelTrackersRepository;
 
 	public Task CreateTrackingDetailsHistoryAsync(ParcelTrackerHistory parcelTrackerHistory)
 	{
