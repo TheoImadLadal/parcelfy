@@ -13,17 +13,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     # Make sure you put workflow kit action on top of all the steps 
-    #- name: Collect Workflow Telemetry
-    #  uses: runforesight/foresight-workflow-kit-action@v1
-    #  if: ${{ always() }}
-    #  with:
-    #    api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23       
+    - name: Collect Workflow Telemetry
+      uses: runforesight/foresight-workflow-kit-action@v1
+      if: ${{ always() }}
+      with:
+        api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23       
   
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 8.0.x
         
