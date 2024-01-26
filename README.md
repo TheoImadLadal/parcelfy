@@ -13,13 +13,10 @@ One single page to track parcels from the biggest carriers in France (Laposte, C
 ![GitHub repo size](https://img.shields.io/github/repo-size/theoimadladal/parcelfy)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/theoimadladal/parcelfy)
 
-[![TheoImadLadal's GitHub stats](https://github-readme-stats.vercel.app/api?username=theoimadladal&show_icons=true&theme=transparent&hide=stars,issues,contribs)](https://github.com/theoimadladal/github-readme-stats)
-
-
     
         
 ## 🛠️ Tech Stack
-* [x] [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core)
+* [x] [ASP.NET Core 8](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) - (Latest release - Available since Novembre 2023)
 * [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
 * [x] [Mapster](https://github.com/MapsterMapper/Mapster)
 * [x] [FluentValidation](https://fluentvalidation.net/)
