@@ -1,0 +1,48 @@
+﻿@page "/Parcelfy"
+@using webUI.Components.Data
+@using webUI.Components.Models
+@rendermode InteractiveServer
+
+<PageTitle>Parcelfy</PageTitle>
+
+<h1>Parcelfy</h1>
+
+<p>This component demonstrates showing data.</p>
+
+<EditForm Model="@ParcelTrackerRequest" OnValidSubmit="@HandleValidSubmit" class="form-inline" FormName="parcel">
+    
+   <label class="ml-2">Parcel ID :</label>
+   <InputText id="ParcelId" @bind-Value="ParcelTrackerRequest.ParcelId" class="form-control" />
+     
+   <button class="btn btn-primary ml-2" type="submit">Submit</button>
+     
+</EditForm>
+
+@if (ParcelTrackerResponse.IdShip != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Shipment ID</th>
+                <th>Product</th>
+                <th>Tracking URL</th>
+                <th>Event Code</th>
+                <th>Event Label</th>
+                <th>Event Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eventDetail in ParcelTrackerResponse.Shipment.Event)
+        {
+        <tr>
+            <td>@ParcelTrackerResponse.Shipment.IdShip</td>
+            <td>@ParcelTrackerResponse.Shipment.Product</td>
+            <td><a href="@ParcelTrackerResponse.Shipment.Url" target="_blank">@ParcelTrackerResponse.Shipment.Url</a></td>
+            <td>@eventDetail.Code</td>
+            <td>@eventDetail.Label</td>
+            <td>@eventDetail.Date</td>
+        </tr>
+        }
+    </tbody>
+</table>
+}
