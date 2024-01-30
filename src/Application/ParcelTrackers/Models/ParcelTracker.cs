@@ -13,7 +13,7 @@ public class ParcelTracker
 		public string IdShip { get; set; }
 		public string Product { get; set; }
 		public bool IsFinal { get; set; }
-		public List<Event> Event { get; set; } = new List<Event>();
+		public List<Event> Event { get; set; } = [];
 		public string Url { get; set; }
 	}
 

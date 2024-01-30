@@ -1,4 +1,4 @@
-namespace parcelfy.Controllers;
+namespace parcelfy.Api.Controllers;
 
 [ApiController]
 [Route("token")]

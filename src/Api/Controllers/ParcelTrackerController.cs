@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
-
-namespace parcelfy.Controllers;
+namespace parcelfy.Api.Controllers;
 
 [ApiController]
 [Route("parcel-tracker")]

@@ -4,7 +4,7 @@ public class ParcelTrackerHistoryValidator : AbstractValidator<ParcelTrackerHist
 {
 	public ParcelTrackerHistoryValidator()
 	{
-		RuleFor(p => p.ParcelId).NotEmpty().Length(14,16);
+		RuleFor(p => p.ParcelId).NotEmpty().Length(14, 16);
 		RuleFor(p => p.EventCode).NotEmpty().Length(3);
 		RuleFor(p => p.EventMessage).NotEmpty();
 		RuleFor(p => p.EventDate).NotEmpty();

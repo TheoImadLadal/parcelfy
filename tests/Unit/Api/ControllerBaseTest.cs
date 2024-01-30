@@ -1,9 +1,9 @@
 using FluentValidation;
 using Microsoft.Extensions.Logging;
 using Moq;
+using parcelfy.Api.Controllers;
 using parcelfy.Application.ParcelTrackers.Abstractions;
 using parcelfy.Application.ParcelTrackers.Models;
-using parcelfy.Controllers;
 
 namespace Api;
 
@@ -28,6 +28,6 @@ public class ControllerBaseTest
 			_createParcelTrackingDetailsCommandsMock.Object,
 			_loggerMock.Object,
 			_validatorMock.Object
-			);		
+			);
 	}
 }

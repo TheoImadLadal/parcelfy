@@ -42,7 +42,7 @@ public static class ConfigureServices
 							Id="Bearer"
 						}
 					},
-					new string[]{}
+					Array.Empty<string>()
 				}
 			});
 
@@ -54,18 +54,15 @@ public static class ConfigureServices
 
 		// Add authnetication
 		services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-		.AddJwtBearer( options =>
+		.AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
 		{
-			options.TokenValidationParameters = new TokenValidationParameters
-			{
-				ValidIssuer = configuration["Authentication:Issuer"],
-				ValidAudience = configuration["Authentication:Audience"],
-				IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Authentication:Key"])),
-				ValidateIssuer = true,
-				ValidateAudience = true,
-				ValidateLifetime = true,
-				ValidateIssuerSigningKey = true
-			};
+			ValidIssuer = configuration["Authentication:Issuer"],
+			ValidAudience = configuration["Authentication:Audience"],
+			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Authentication:Key"])),
+			ValidateIssuer = true,
+			ValidateAudience = true,
+			ValidateLifetime = true,
+			ValidateIssuerSigningKey = true
 		});
 
 		services.AddScoped<IValidator<ParcelTrackerHistory>, ParcelTrackerHistoryValidator>();
