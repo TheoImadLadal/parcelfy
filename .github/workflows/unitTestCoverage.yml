@@ -31,7 +31,7 @@ jobs:
       run: mkdir -p coverage
       
     - name: Dotnet Test
-      run: dotnet test --no-build --verbosity diagnostic --collect:"XPlat Code Coverage" --results-directory ./coverage
+      run: dotnet test --no-build --verbosity detailed --collect:"XPlat Code Coverage" --results-directory ./coverage
       
     - name: Create code coverage report
       run: |
