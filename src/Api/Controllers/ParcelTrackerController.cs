@@ -20,7 +20,6 @@ public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFr
 	/// </summary>
 	/// <param name="parcelId"></param>
 	/// <returns>Tracking details</returns>
-	[Authorize]
 	[HttpGet("{parcelId}")]
 	[ProducesResponseType(StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]

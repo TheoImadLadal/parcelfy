@@ -16,7 +16,7 @@ public static class ConfigureServices
 			{
 				Version = "v1",
 				Title = "Parcelfy API",
-				Description = "<b>A Dotnet Core Web API for tracking details <i>(Only Colissimo, Chronopost and LaPoste for the moment).</i></b><br/>",
+				Description = "<b>A Dotnet Core Web API for tracking parcel details, You will find more details here : https://github.com/TheoImadLadal/parcelfy</b><br/>",
 				Contact = new OpenApiContact
 				{
 					Name = "Theo Imad Ladal",
