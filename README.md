@@ -38,8 +38,8 @@ Stay tuned.
 
 **FRONTEND** *~~Coming soon~~*
 
-* [ ] [BLAZOR](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) - Hosted in this Github Repo : [Parcelfy-Blazor](https://github.com/TheoImadLadal/parcelfy-blazor)
-* [ ] [REACT](https://react.dev/) - Hosted in this Github Repo : [Parcelfy-React](https://github.com/TheoImadLadal/parcelfy-react)
+* [ ] [BLAZOR](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) - BACKEND - Hosted in this Github Repo : [Parcelfy-Blazor](https://github.com/TheoImadLadal/parcelfy-blazor)
+* [ ] [REACT](https://react.dev/) - FRONTEND - Hosted in this Github Repo : [Parcelfy-React](https://github.com/TheoImadLadal/parcelfy-react)
 
 **BACKEND**
 
@@ -55,8 +55,10 @@ Stay tuned.
 **DATABASE**
 * [x] [Azure SQL Database](https://azure.microsoft.com/fr-fr/products/azure-sql/database/)
 * [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
+* [ ] [POSTGRESql](https://www.postgresql.org/) - As a replacement for Azure SQL DB 
 
 **PATTERN** *~~Coming soon~~*
+* [ ] [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 * [ ] [Circuit Breaker](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
 
 *And more to come.*    
