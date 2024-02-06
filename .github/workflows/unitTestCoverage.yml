@@ -33,13 +33,14 @@ jobs:
     - name: Dotnet Test
       run: |
         dotnet tool install --global dotnet-coverage
-        dotnet coverage collect dotnet test --output coverage --output-format cobertura        
+        dotnet coverage collect dotnet test --output-format cobertura        
         # dotnet coverage collect dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       
     - name: Create code coverage report
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges'
+        reportgenerator -reports:output.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges'
+        # reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges'
   
     - name: Code Coverage Summary Report
       uses: irongut/CodeCoverageSummary@v1.3.0
