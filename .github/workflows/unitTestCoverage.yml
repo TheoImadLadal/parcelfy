@@ -39,7 +39,7 @@ jobs:
     - name: Create code coverage report
       run: |
         dotnet tool install -g dotnet-reportgenerator-globaltool
-        reportgenerator -reports:output.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges' -assemblyfilters:-parcelfy.tests*;-FluentValidation*;-TechTalk*
+        reportgenerator -reports:output.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges' -assemblyfilters:"+parcelfy.Api*;+parcelfy.Application*;+parcelfy.Core*;+parcelfy.Infrastructure*"
         # reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverage -reporttypes:'Cobertura;Badges'
   
     - name: Code Coverage Summary Report
