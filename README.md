@@ -57,8 +57,11 @@ Stay tuned.
 * [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
 * [ ] [POSTGRESql](https://www.postgresql.org/) - As a replacement for Azure SQL DB 
 
+**ARCHITECTURE** 
+* [x] [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
+
+
 **PATTERN** *~~Coming soon~~*
-* [ ] [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
 * [ ] [Circuit Breaker](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
 
 *And more to come.*    
@@ -79,15 +82,24 @@ GET /parcel-tracker/{parcelId}
         
 ## 🙇 Acknowledgements      
 
-### Api
-This layer depends on both the Application and Infrastructure layers, however, the dependency on Infrastructure is only to support dependency injection
 
-### Application
-This layer contains all application logic. It is dependent on the infrastructure layer, but has no dependencies on any other layer or project.
+### Core Layer:
+- Defines domain entities, value objects, validators, and business logic independent of infrastructure choices.
+- Ensures clean separation of concerns and reusability of core concepts.
 
-### Infrastructure
-This layer contains classes for accessing external resources such as file systems, web services, smtp, and so on. <br/>
-These classes should be based on interfaces defined within the application layer.
-        
+### Application Layer:
+- Orchestrates business logic using core domain concepts.
+- Defines use cases for specific application functionalities.
+- Decouples core logic from infrastructure and presentation details.
+
+### Infrastructure Layer:
+- Provides concrete implementations for persistence, external service interactions, and other technical concerns.
+- Uses interfaces to connect with the application layer and maintain testability.
+- Separates infrastructure details from core logic and application functionalities.
+
+### API Layer (Controllers):
+- Handles routing, request/response parsing, and presentation-related concerns.
+- Calls application use cases for business logic execution.
+- Focuses on API design and user interaction without implementing core logic.
 
         
