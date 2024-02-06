@@ -31,7 +31,9 @@ jobs:
       run: mkdir -p coverage
       
     - name: Dotnet Test
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      run: |
+        dotnet tool install --global dotnet-coverage
+        dotnet coverage collect dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
       
     - name: Create code coverage report
       run: |
