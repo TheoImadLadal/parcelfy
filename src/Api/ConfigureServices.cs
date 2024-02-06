@@ -65,7 +65,6 @@ public static class ConfigureServices
 			ValidateIssuerSigningKey = true
 		});
 
-		services.AddScoped<IValidator<ParcelTrackerHistory>, ParcelTrackerHistoryValidator>();
 		services.AddResponseCompression();
 		services.AddDataProtection();
 		return services;

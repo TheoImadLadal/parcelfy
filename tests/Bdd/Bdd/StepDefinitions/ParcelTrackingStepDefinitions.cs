@@ -1,3 +1,6 @@
+using parcelfy.Core.Entities;
+using parcelfy.Infrastructure.Repositories;
+
 namespace Bdd.StepDefinitions;
 
 [Binding]
@@ -5,10 +8,10 @@ public class ParcelTrackingStepDefinitions
 {
 	private readonly Mock<ParcelfyDbContext> _dbContextMock;
 	private readonly InMemoryParcelTrackersRepository _inMemoryParcelTrackersRepository;
-	public IEnumerable<ParcelTrackerHistoryDto> _result;
-	protected static readonly List<ParcelTrackerHistoryDto> _parcelTrackerHistorydto = new List<ParcelTrackerHistoryDto>
+	public IEnumerable<ParcelTrackerHistoryEntity> _result;
+	protected static readonly List<ParcelTrackerHistoryEntity> _parcelTrackerHistorydto = new List<ParcelTrackerHistoryEntity>
 	{
-		new ParcelTrackerHistoryDto
+		new ParcelTrackerHistoryEntity
 		{
 			ParcelId = "LU680211095FR",
 			EventCode = "DR1",
@@ -24,7 +27,7 @@ public class ParcelTrackingStepDefinitions
 	{
 		_dbContextMock = new Mock<ParcelfyDbContext>();
 		_inMemoryParcelTrackersRepository = new InMemoryParcelTrackersRepository(_dbContextMock.Object);
-		_result = new List<ParcelTrackerHistoryDto>();
+		_result = new List<ParcelTrackerHistoryEntity>();
 	}
 
 	[Given(@"a parcel with ID ""([^""]*)""")]
@@ -54,7 +57,7 @@ public class ParcelTrackingStepDefinitions
 	{
 		// Check that the result is not null and is a list of tracking details
 		Assert.NotNull(_result);
-		Assert.IsType<List<ParcelTrackerHistoryDto>>(_result);
+		Assert.IsType<List<ParcelTrackerHistoryEntity>>(_result);
 	}
 
 	[Then(@"the result should contain the tracking details for the parcel")]

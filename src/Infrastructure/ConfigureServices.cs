@@ -3,13 +3,14 @@
 [ExcludeFromCodeCoverage]
 public static class ConfigureServices
 {
-	public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+	public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
 	{
-		return services
+		services
 			.AddHttpClient()
 			.AddScoped<IHttpParcelTrackingRepository, HttpParcelTrackersRepository>()
 			.AddScoped<IInMemoryParcelTrackingRepository, InMemoryParcelTrackersRepository>()
-			.AddDbContext<ParcelfyDbContext>(options => options.UseSqlServer(configuration.GetConnectionString(Constants.AzureDb)));
+			.AddDbContext<ParcelfyDbContext>(options => options.UseSqlServer(Constants.AzureDb));
 
+		return services;
 	}
 }

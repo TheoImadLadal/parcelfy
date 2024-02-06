@@ -3,7 +3,7 @@
 [ExcludeFromCodeCoverage]
 public class ParcelfyDbContext : DbContext
 {
-	public virtual DbSet<ParcelTrackerHistoryDto> ParcelTrackHistories { get; set; }
+	public virtual DbSet<ParcelTrackerHistoryEntity> ParcelTrackHistories { get; set; }
 
 	public ParcelfyDbContext()
 	{
@@ -16,7 +16,7 @@ public class ParcelfyDbContext : DbContext
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
-		modelBuilder.Entity<ParcelTrackerHistoryDto>(entity =>
+		modelBuilder.Entity<ParcelTrackerHistoryEntity>(entity =>
 		{
 			entity.HasKey(p => new { p.ParcelId, p.EventCode });
 			entity.ToTable("parcel_track_history");

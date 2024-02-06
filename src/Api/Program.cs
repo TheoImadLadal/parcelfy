@@ -1,3 +1,5 @@
+using parcelfy.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 if (builder.Environment.IsDevelopment())
@@ -8,13 +10,13 @@ if (builder.Environment.IsDevelopment())
 }
 
 // Add services to Configuration Appsettings
-builder.Services.Configure<LaPosteApiConfiguration>(builder.Configuration.GetSection(Constants.LaPoste));
+//builder.Services.Configure<LaPosteApiConfiguration>(builder.Configuration.GetSection(Constants.LaPoste));
 // Api
 builder.Services.AddApiServices(builder.Configuration);
 // Application
 builder.Services.AddApplicationServices();
 // Infrastructure 
-builder.Services.AddInfrastructureServices(builder.Configuration);
+builder.Services.AddInfrastructureServices();
 
 
 var app = builder.Build();

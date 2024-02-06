@@ -1,17 +1,16 @@
+using parcelfy.Application.Services;
+
 namespace parcelfy.Api.Controllers;
 
 [ApiController]
 [Route("parcel-tracker")]
 [Produces("application/json")]
-public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFromParcelId,
-	ICreateParcelTrackingDetailsCommands createParcelTrackingDetailsCommands,
-	ILogger<ParcelTrackerController> logger,
-	IValidator<ParcelTrackerHistory> validator) : ControllerBase
+public class ParcelTrackerController(IParcelTrackingService parcelTrackingService,
+	ILogger<ParcelTrackerController> logger
+	) : ControllerBase
 {
-	private readonly IGetParcelTrackingDetailsById _getTrackingFromParcelId = getTrackingFromParcelId;
-	private readonly ICreateParcelTrackingDetailsCommands _createParcelTrackingDetailsCommands = createParcelTrackingDetailsCommands;
+	private readonly IParcelTrackingService _parcelTrackingService = parcelTrackingService;
 	private readonly ILogger<ParcelTrackerController> _logger = logger;
-	private readonly IValidator<ParcelTrackerHistory> _validator = validator;
 
 	/// <summary>
 	/// Get tracking details for a specific parcel Id
@@ -24,7 +23,7 @@ public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFr
 	[ProducesResponseType(StatusCodes.Status401Unauthorized)]
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-	public async Task<ActionResult<ParcelTracker>> ParcelToTrack(string parcelId)
+	public async Task<ActionResult<ParcelTrackerDTO>> ParcelToTrack(string parcelId)
 	{
 		try
 		{
@@ -33,7 +32,7 @@ public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFr
 				return BadRequest();
 			}
 
-			ParcelTracker result = await _getTrackingFromParcelId.GetTrackingDetailsAsync(parcelId);
+			ParcelTrackerDTO result = await _parcelTrackingService.GetTrackingDetailsById(parcelId);
 
 			if (result is null)
 			{
@@ -60,20 +59,18 @@ public class ParcelTrackerController(IGetParcelTrackingDetailsById getTrackingFr
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	[ProducesResponseType(StatusCodes.Status500InternalServerError)]
 	[DisableRequestSizeLimit]
-	public async Task<ActionResult<ParcelTrackerHistory>> ParcelToTrack(ParcelTrackerHistory parcelTrackerHistory)
+	public async Task<ActionResult<ParcelTrackerHistoryDTO>> ParcelToTrack(ParcelTrackerHistoryDTO parcelTrackerHistory)
 	{
 		try
 		{
-			ValidationResult validationResult = await _validator.ValidateAsync(parcelTrackerHistory);
-			if (!validationResult.IsValid)
-			{
-				var errorsMessages = Results.ValidationProblem(validationResult.ToDictionary());
-				return BadRequest(errorsMessages);
-			}
-
-			await _createParcelTrackingDetailsCommands.CreateTrackingDetailsHistoryAsync(parcelTrackerHistory);
+			await _parcelTrackingService.CreateTrackingDetails(parcelTrackerHistory);
 
 			return StatusCode(StatusCodes.Status201Created, parcelTrackerHistory);
+		}
+		catch (ValidationException ex)
+		{
+			_logger.LogError(ex.Message, ex.Errors);
+			return BadRequest(new { errors = ex.Errors.Select(e => e.ErrorMessage) });
 		}
 		catch (Exception ex)
 		{

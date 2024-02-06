@@ -1,13 +1,11 @@
 ﻿global using System.Diagnostics.CodeAnalysis;
 global using System.Net.Http.Headers;
 global using System.Text.Json;
-global using System.Text.Json.Serialization;
 global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
-global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Options;
-global using parcelfy.Infrastructure.ParcelTrackersRepository;
-global using parcelfy.Infrastructure.ParcelTrackersRepository.Abstractions;
-global using parcelfy.Infrastructure.ParcelTrackersRepository.Dtos;
+global using parcelfy.Core.Entities;
+global using parcelfy.Core.Repositories;
 global using parcelfy.Infrastructure.Persistence;
+global using parcelfy.Infrastructure.Repositories;

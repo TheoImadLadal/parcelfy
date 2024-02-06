@@ -1,33 +1,25 @@
-using FluentValidation;
 using Microsoft.Extensions.Logging;
 using Moq;
 using parcelfy.Api.Controllers;
-using parcelfy.Application.ParcelTrackers.Abstractions;
-using parcelfy.Application.ParcelTrackers.Models;
+using parcelfy.Application.Services;
 
 namespace Api;
 
 public class ControllerBaseTest
 {
-	protected readonly Mock<IGetParcelTrackingDetailsById> _getTrackingFromParcelIdMock;
-	protected readonly Mock<ICreateParcelTrackingDetailsCommands> _createParcelTrackingDetailsCommandsMock;
+	protected readonly Mock<IParcelTrackingService> _parcelTrackingServiceMock;
 	protected readonly Mock<ILogger<ParcelTrackerController>> _loggerMock;
-	protected readonly Mock<IValidator<ParcelTrackerHistory>> _validatorMock;
 
 	protected ParcelTrackerController _parcelTrackerController;
 
 	public ControllerBaseTest()
 	{
-		_getTrackingFromParcelIdMock = new Mock<IGetParcelTrackingDetailsById>();
-		_createParcelTrackingDetailsCommandsMock = new Mock<ICreateParcelTrackingDetailsCommands>();
+		_parcelTrackingServiceMock = new Mock<IParcelTrackingService>();
 		_loggerMock = new Mock<ILogger<ParcelTrackerController>>();
-		_validatorMock = new Mock<IValidator<ParcelTrackerHistory>>();
 
 		_parcelTrackerController = new ParcelTrackerController(
-			_getTrackingFromParcelIdMock.Object,
-			_createParcelTrackingDetailsCommandsMock.Object,
-			_loggerMock.Object,
-			_validatorMock.Object
+			_parcelTrackingServiceMock.Object,
+			_loggerMock.Object
 			);
 	}
 }
