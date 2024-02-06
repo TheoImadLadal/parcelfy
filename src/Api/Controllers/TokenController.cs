@@ -3,6 +3,7 @@ namespace parcelfy.Api.Controllers;
 [ApiController]
 [Route("token")]
 [Produces("application/json")]
+[ExcludeFromCodeCoverage]
 public class TokenController(IConfiguration configuration) : ControllerBase
 {
 	private readonly IConfiguration _configuration = configuration;

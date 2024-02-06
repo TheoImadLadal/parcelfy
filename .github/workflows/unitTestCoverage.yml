@@ -15,12 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3   
   
-   # Make sure you put workflow kit action on top of all the steps 
-    - name: Collect Workflow Telemetry
-      uses: runforesight/foresight-workflow-kit-action@v1
-      if: ${{ always() }}
-      with:
-        api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
+    # Make sure you put workflow kit action on top of all the steps 
+    # - name: Collect Workflow Telemetry
+    #   uses: runforesight/foresight-workflow-kit-action@v1
+    #   if: ${{ always() }}
+    #   with:
+    #     api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3.0.3
@@ -57,15 +57,15 @@ jobs:
         format: 'markdown'
         output: 'both'
       
-    - name: Analyze Test and/or Coverage Results
-      uses: runforesight/foresight-test-kit-action@v1
-      with:
-        api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
-        test_format: XUNIT2
-        test_framework: XUNIT2
-        test_path: <test_results_path_optional>
-        coverage_format: COBERTURA/XML
-        coverage_path: coverage/Cobertura.xml
+    # - name: Analyze Test and/or Coverage Results
+    #   uses: runforesight/foresight-test-kit-action@v1
+    #   with:
+    #     api_key: 5f9bf240-a17d-46c9-83a0-33ed1f201e23
+    #     test_format: XUNIT2
+    #     test_framework: XUNIT2
+    #     test_path: <test_results_path_optional>
+    #     coverage_format: COBERTURA/XML
+    #     coverage_path: coverage/Cobertura.xml
         
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
