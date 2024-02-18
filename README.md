@@ -44,25 +44,28 @@ Stay tuned.
 **BACKEND**
 
 * [x] [ASP.NET Core 8](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) - (Latest release - Available since Novembre 2023)
-* [x] [Mapster](https://github.com/MapsterMapper/Mapster)
-* [x] [FluentValidation](https://fluentvalidation.net/)
-* [x] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/) & [Moq](https://github.com/moq)
-* [X] [Stryker testing](https://stryker-mutator.io/)
-* [X] [Specflow BDD](https://specflow.org/)
-* [X] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6)
+* [X] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6) 
+* [ ] [Polly](https://github.com/App-vNext/Polly) - Retry policy 
+* [x] [Mapster](https://github.com/MapsterMapper/Mapster) - Auto mapping
+* [x] [FluentValidation](https://fluentvalidation.net/) - Model validation
+* [x] [NUnit](https://nunit.org/), [FluentAssertions](https://fluentassertions.com/), [Moq](https://github.com/moq) - Unit testing
+* [X] [Stryker testing](https://stryker-mutator.io/) - Mutation testing
+* [X] [Specflow BDD](https://specflow.org/) - Behaviour testing
+
 
  
 **DATABASE**
-* [x] [Azure SQL Database](https://azure.microsoft.com/fr-fr/products/azure-sql/database/)
-* [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew)
-* [ ] [POSTGRESql](https://www.postgresql.org/) - As a replacement for Azure SQL DB 
+* [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew) / [Npgsql](https://www.npgsql.org/)
+* [x] [Azure SQL Database](https://azure.microsoft.com/fr-fr/products/azure-sql/database/) - Old
+* [x] [POSTGRESql](https://www.postgresql.org/) - New
 
 **ARCHITECTURE** 
 * [x] [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
+* [x] [REST](https://restfulapi.net/)
+* [ ] [GraphQL](https://graphql.org/)
 
 
-**PATTERN** *~~Coming soon~~*
-* [ ] [Circuit Breaker](https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-circuit-breaker-pattern)
+
 
 *And more to come.*    
      

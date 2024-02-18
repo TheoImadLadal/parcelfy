@@ -39,13 +39,13 @@ public class ParcelTrackerControllerTests : ControllerBaseTest
 
 	protected static readonly ParcelTrackerHistoryDTO ExpectedParcelTrackerhistory = new()
 	{
-		ParcelId = "LU680211095FR",
-		EventCode = "DR1",
-		EventMessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
-		EventDate = DateTime.Now,
-		Product = "Courrier international",
-		IsFinal = false,
-		URL = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
+		parcelid = "LU680211095FR",
+		eventcode = "DR1",
+		eventmessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
+		eventdate = DateTime.Now,
+		product = "Courrier international",
+		isfinal = false,
+		url = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
 	};
 
 	#region GET

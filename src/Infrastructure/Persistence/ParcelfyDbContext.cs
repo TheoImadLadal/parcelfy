@@ -13,29 +13,32 @@ public class ParcelfyDbContext : DbContext
 		: base(options)
 	{
 	}
+	public virtual DbSet<ParcelTrackerHistoryEntity> ParcelTrackHistoryEntities { get; set; }
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
 		modelBuilder.Entity<ParcelTrackerHistoryEntity>(entity =>
 		{
-			entity.HasKey(p => new { p.ParcelId, p.EventCode });
-			entity.ToTable("parcel_track_history");
-			entity.Property(e => e.EventCode)
-				.HasMaxLength(3)
+			entity.HasKey(p => new { p.parcelid, p.eventcode });
+			entity.ToTable("parceltrackinghistory");
+			entity.Property(e => e.eventcode)
+				.HasMaxLength(10)
 				.IsFixedLength();
-			entity.Property(e => e.EventDate)
+			entity.Property(e => e.eventdate)
 				.HasColumnType("datetime");
-			entity.Property(e => e.EventMessage)
+			entity.Property(e => e.eventmessage)
 				.HasColumnType("text");
-			entity.Property(e => e.ParcelId)
+			entity.Property(e => e.parcelid)
 				.HasMaxLength(50)
 				.IsUnicode(false);
-			entity.Property(e => e.Product)
-				.HasMaxLength(50)
+			entity.Property(e => e.product)
+				.HasMaxLength(100)
 				.IsUnicode(false);
-			entity.Property(e => e.URL)
+			entity.Property(e => e.url)
 				.HasMaxLength(255)
 				.IsUnicode(false);
+			entity.Property(e => e.isfinal)
+				.HasColumnType("bool");
 		});
 	}
 }

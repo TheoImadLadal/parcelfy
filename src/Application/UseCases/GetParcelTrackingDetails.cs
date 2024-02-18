@@ -31,9 +31,9 @@ public class GetParcelTrackingDetails(IMapper mapper, IHttpParcelTrackingReposit
 
 		events.AddRange(parcelTrackerHistoryEntities.Select(parcelTrackerHistoryEntity => new Event()
 		{
-			Code = parcelTrackerHistoryEntity.EventCode,
-			Label = parcelTrackerHistoryEntity.EventMessage,
-			Date = parcelTrackerHistoryEntity.EventDate,
+			Code = parcelTrackerHistoryEntity.eventcode,
+			Label = parcelTrackerHistoryEntity.eventmessage,
+			Date = parcelTrackerHistoryEntity.eventdate,
 		}));
 
 		parcelTracker = _mapper.Map<ParcelTrackerDTO>(parcelTrackerHistoryEntities.FirstOrDefault());

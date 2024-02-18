@@ -6,7 +6,7 @@ public class InMemoryParcelTrackersRepository(ParcelfyDbContext dbContext) : IIn
 
 	public Task<IEnumerable<ParcelTrackerHistoryEntity>> GetTrackingDetails(string parcelId)
 	{
-		IEnumerable<ParcelTrackerHistoryEntity> parcelTrackHistories = _dbContext.ParcelTrackHistories.Where(p => p.ParcelId == parcelId).ToList();
+		IEnumerable<ParcelTrackerHistoryEntity> parcelTrackHistories = _dbContext.ParcelTrackHistories.Where(p => p.parcelid == parcelId).ToList();
 		return Task.FromResult(parcelTrackHistories);
 	}
 

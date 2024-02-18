@@ -11,13 +11,13 @@ public class ParcelTrackHistoryMappingConfigTests
 {
 	protected static readonly ParcelTrackerHistoryDTO ExpectedParcelTrackerhistory = new()
 	{
-		ParcelId = "LU680211095FR",
-		EventCode = "DR1",
-		EventMessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
-		EventDate = DateTime.Now,
-		Product = "Courrier international",
-		IsFinal = false,
-		URL = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
+		parcelid = "LU680211095FR",
+		eventcode = "DR1",
+		eventmessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
+		eventdate = DateTime.Now,
+		product = "Courrier international",
+		isfinal = false,
+		url = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
 	};
 
 	[Fact]
@@ -32,15 +32,15 @@ public class ParcelTrackHistoryMappingConfigTests
 		var parcelTracker = parcelTrackerHistoryDto.Adapt<ParcelTrackerDTO>(config);
 
 		// Assert
-		Assert.Equal(ExpectedParcelTrackerhistory.ParcelId, parcelTrackerHistoryDto.ParcelId);
-		Assert.Equal(ExpectedParcelTrackerhistory.URL, parcelTrackerHistoryDto.URL);
-		Assert.Equal(ExpectedParcelTrackerhistory.Product, parcelTrackerHistoryDto.Product);
-		Assert.Equal(ExpectedParcelTrackerhistory.IsFinal, parcelTrackerHistoryDto.IsFinal);
+		Assert.Equal(ExpectedParcelTrackerhistory.parcelid, parcelTrackerHistoryDto.parcelid);
+		Assert.Equal(ExpectedParcelTrackerhistory.url, parcelTrackerHistoryDto.url);
+		Assert.Equal(ExpectedParcelTrackerhistory.product, parcelTrackerHistoryDto.product);
+		Assert.Equal(ExpectedParcelTrackerhistory.isfinal, parcelTrackerHistoryDto.isfinal);
 
-		Assert.Equal(parcelTrackerHistoryDto.ParcelId, parcelTracker.IdShip);
-		Assert.Equal(parcelTrackerHistoryDto.URL, parcelTracker.Shipment.Url);
-		Assert.Equal(parcelTrackerHistoryDto.Product, parcelTracker.Shipment.Product);
-		Assert.Equal(parcelTrackerHistoryDto.IsFinal, parcelTracker.Shipment.IsFinal);
-		Assert.Equal(parcelTrackerHistoryDto.ParcelId, parcelTracker.Shipment.IdShip);
+		Assert.Equal(parcelTrackerHistoryDto.parcelid, parcelTracker.IdShip);
+		Assert.Equal(parcelTrackerHistoryDto.url, parcelTracker.Shipment.Url);
+		Assert.Equal(parcelTrackerHistoryDto.product, parcelTracker.Shipment.Product);
+		Assert.Equal(parcelTrackerHistoryDto.isfinal, parcelTracker.Shipment.IsFinal);
+		Assert.Equal(parcelTrackerHistoryDto.parcelid, parcelTracker.Shipment.IdShip);
 	}
 }

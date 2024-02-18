@@ -13,13 +13,13 @@ public class ParcelTrackingStepDefinitions
 	{
 		new ParcelTrackerHistoryEntity
 		{
-			ParcelId = "LU680211095FR",
-			EventCode = "DR1",
-			EventMessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
-			EventDate = DateTime.Now,
-			Product = "Courrier international",
-			IsFinal = false,
-			URL = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
+			parcelid = "LU680211095FR",
+			eventcode = "DR1",
+			eventmessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
+			eventdate = DateTime.Now,
+			product = "Courrier international",
+			isfinal = false,
+			url= "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
 		}
 	};
 
@@ -33,7 +33,7 @@ public class ParcelTrackingStepDefinitions
 	[Given(@"a parcel with ID ""([^""]*)""")]
 	public void GivenAParcelWithID(string p0)
 	{
-		_parcelTrackerHistorydto.First().ParcelId = p0;
+		_parcelTrackerHistorydto.First().parcelid = p0;
 	}
 
 	[Given(@"the parcel has tracking details")]
@@ -64,7 +64,7 @@ public class ParcelTrackingStepDefinitions
 	public void ThenTheResultShouldContainTheTrackingDetailsForTheParcel()
 	{
 		// Check that the result contains the tracking details for the parcel
-		Assert.True(_result?.Any(t => t.ParcelId == "LZ712917377US" && t.EventCode == "DR1"));
+		Assert.True(_result?.Any(t => t.parcelid == "LZ712917377US" && t.eventcode == "DR1"));
 	}
 }
 

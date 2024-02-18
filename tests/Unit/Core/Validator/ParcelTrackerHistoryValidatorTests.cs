@@ -20,13 +20,13 @@ public class ParcelTrackerHistoryValidatorTests
 		// Arrange
 		var parcelTrackerHistory = new ParcelTrackerHistoryDTO
 		{
-			ParcelId = "LU6580211095FR",
-			EventCode = "DR1",
-			EventMessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
-			EventDate = DateTime.Now,
-			Product = "Courrier international",
-			IsFinal = true,
-			URL = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
+			parcelid = "LU6580211095FR",
+			eventcode = "DR1",
+			eventmessage = "La Poste est prête à prendre en charge votre envoi.Dès qu’il nous sera confié,",
+			eventdate = DateTime.Now,
+			product = "Courrier international",
+			isfinal = true,
+			url = "https://www.laposte.fr/outils/suivre-vos-envois?code=LU680211095FR"
 		};
 
 		// Act
@@ -42,13 +42,13 @@ public class ParcelTrackerHistoryValidatorTests
 		// Arrange
 		var parcelTrackerHistory = new ParcelTrackerHistoryDTO
 		{
-			ParcelId = "",
-			EventCode = "",
-			EventMessage = null,
-			EventDate = DateTime.Now,
-			Product = null,
-			IsFinal = false,
-			URL = null
+			parcelid = "",
+			eventcode = "",
+			eventmessage = null,
+			eventdate = DateTime.Now,
+			product = null,
+			isfinal = false,
+			url = null
 		};
 
 		// Act

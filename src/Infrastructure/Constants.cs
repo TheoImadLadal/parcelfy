@@ -4,7 +4,7 @@
 public static class Constants
 {
 	/// <summary>
-	/// The LaPoste URI
+	/// The LaPoste 
 	/// </summary>
 	public const string LaPoste = "LaPoste";
 
@@ -23,8 +23,9 @@ public static class Constants
 	/// </summary>
 	public const string LaPosteRoute = "/idships/";
 
+
 	/// <summary>
-	/// The LaPoste API
+	/// The Postgres connection string
 	/// </summary>
-	public const string AzureDb = "Server=tcp:parcelfy.database.windows.net,1433;Initial Catalog=parcelfyDb;Persist Security Info=False;User ID=parcelfyAd;Password=saJuhu5rimad;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+	public const string PostgresDb = "Host=mouse.db.elephantsql.com;Port=5432;Database=mjszcwlr;User Id=mjszcwlr;Password=G-nP_YTlX7wskGk2P3Jf5nIbFH4YIPLb;";
 }

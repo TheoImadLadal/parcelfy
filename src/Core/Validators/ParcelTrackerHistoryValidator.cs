@@ -7,13 +7,13 @@ public class ParcelTrackerHistoryValidator : AbstractValidator<ParcelTrackerHist
 {
 	public ParcelTrackerHistoryValidator()
 	{
-		RuleFor(p => p.ParcelId).NotEmpty().Length(13, 16);
-		RuleFor(p => p.EventCode).NotEmpty().Length(3);
-		RuleFor(p => p.EventMessage).NotEmpty();
-		RuleFor(p => p.EventDate).NotEmpty();
-		RuleFor(p => p.Product).NotEmpty();
-		RuleFor(p => p.IsFinal).NotEmpty();
-		RuleFor(p => p.URL).NotEmpty();
+		RuleFor(p => p.parcelid).NotEmpty().Length(13, 16);
+		RuleFor(p => p.eventcode).NotEmpty().Length(3);
+		RuleFor(p => p.eventmessage).NotEmpty();
+		RuleFor(p => p.eventdate).NotEmpty();
+		RuleFor(p => p.product).NotEmpty();
+		RuleFor(p => p.isfinal).NotEmpty();
+		RuleFor(p => p.url).NotEmpty();
 	}
 }
 

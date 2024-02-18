@@ -9,7 +9,8 @@ public static class ConfigureServices
 			.AddHttpClient()
 			.AddScoped<IHttpParcelTrackingRepository, HttpParcelTrackersRepository>()
 			.AddScoped<IInMemoryParcelTrackingRepository, InMemoryParcelTrackersRepository>()
-			.AddDbContext<ParcelfyDbContext>(options => options.UseSqlServer(Constants.AzureDb));
+			.AddDbContext<ParcelfyDbContext>(options => options.UseNpgsql(Constants.PostgresDb));
+		//.AddDbContext<ParcelfyDbContext>(options => options.UseSqlServer(Constants.AzureDb));
 
 		return services;
 	}

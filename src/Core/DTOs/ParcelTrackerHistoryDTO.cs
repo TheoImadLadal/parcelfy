@@ -5,12 +5,12 @@ namespace parcelfy.Core.DTOs;
 [ExcludeFromCodeCoverage]
 public class ParcelTrackerHistoryDTO
 {
-	public string ParcelId { get; set; }
-	public string EventCode { get; set; }
-	public string EventMessage { get; set; }
-	public DateTime EventDate { get; set; }
-	public string Product { get; set; }
-	public bool IsFinal { get; set; }
-	public string URL { get; set; }
+	public string parcelid { get; set; }
+	public string eventcode { get; set; }
+	public string eventmessage { get; set; }
+	public DateTime eventdate { get; set; }
+	public string product { get; set; }
+	public bool isfinal { get; set; }
+	public string url { get; set; }
 }
 
