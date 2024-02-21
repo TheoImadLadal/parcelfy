@@ -38,12 +38,13 @@ Stay tuned.
 
 **FRONTEND** *~~Coming soon~~*
 
-* [ ] [BLAZOR](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) - BACKEND - Hosted in this Github Repo : [Parcelfy-Blazor](https://github.com/TheoImadLadal/parcelfy-blazor)
+* [x] [BLAZOR](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) - FRONTEND - Hosted in this Github Repo : [Parcelfy-Blazor](https://github.com/TheoImadLadal/parcelfy-blazor)
 * [ ] [REACT](https://react.dev/) - FRONTEND - Hosted in this Github Repo : [Parcelfy-React](https://github.com/TheoImadLadal/parcelfy-react)
 
 **BACKEND**
 
 * [x] [ASP.NET Core 8](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) - (Latest release - Available since Novembre 2023)
+* [ ] [HealthChecks](https://learn.microsoft.com/en-us/aspnet/core/host-and-deploy/health-checks?view=aspnetcore-8.0)
 * [X] [Authentication API JWT](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.JwtBearer/6.0.6) 
 * [ ] [Polly](https://github.com/App-vNext/Polly) - Retry policy 
 * [x] [Mapster](https://github.com/MapsterMapper/Mapster) - Auto mapping
@@ -56,7 +57,7 @@ Stay tuned.
  
 **DATABASE**
 * [x] [EF CORE 6](https://learn.microsoft.com/fr-fr/ef/core/what-is-new/ef-core-6.0/whatsnew) / [Npgsql](https://www.npgsql.org/)
-* [x] [Azure SQL Database](https://azure.microsoft.com/fr-fr/products/azure-sql/database/) - Old
+* [x] ~~[Azure SQL Database](https://azure.microsoft.com/fr-fr/products/azure-sql/database/)~~ - Old
 * [x] [POSTGRESql](https://www.postgresql.org/) - New
 
 **ARCHITECTURE** 
@@ -70,10 +71,13 @@ Stay tuned.
 *And more to come.*    
      
 
-## ➤ API Reference 
+## ➤ References 
 
-#### API Doc : https://parcelfy.azurewebsites.net/swagger/index.html
-### Get tracking details by parcelId
+### Front (Blazor) : https://parcelfy-blazor.azurewebsites.net/
+![Parcelfy](parcelfy.png)
+
+### API Doc : https://parcelfy.azurewebsites.net/swagger/index.html
+#### Get tracking details by parcelId
 ```http
 GET /parcel-tracker/{parcelId}
 ```
